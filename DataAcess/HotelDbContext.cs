@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAcess
 {
-    public class HotelDbContext : DbContext
+    public class HotelDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Guest> Guests { get; set; }
@@ -19,6 +20,17 @@ namespace DataAcess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Booking>()
+               .HasOne(b => b.Room)
+               .WithMany(r => r.Bookings)
+               .HasForeignKey(b => b.RoomId)
+               .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Booking>()
+                .HasOne(b => b.Guest)
+                .WithMany(g => g.Bookings)
+                .HasForeignKey(b => b.GuestId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -15,3 +15,4 @@ D:\Hammad\App_VS\HotelApi\HotelServices\obj\Debug\net8.0\HotelServices.dll
 D:\Hammad\App_VS\HotelApi\HotelServices\obj\Debug\net8.0\refint\HotelServices.dll
 D:\Hammad\App_VS\HotelApi\HotelServices\obj\Debug\net8.0\HotelServices.pdb
 D:\Hammad\App_VS\HotelApi\HotelServices\obj\Debug\net8.0\ref\HotelServices.dll
+D:\Hammad\App_VS\HotelApi\HotelServices\obj\Debug\net8.0\HotelServices.sourcelink.json

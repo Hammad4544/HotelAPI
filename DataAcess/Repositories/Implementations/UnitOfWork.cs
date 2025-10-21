@@ -9,11 +9,19 @@ namespace DataAcess.Repositories.Implementations
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public IRoomRepository Rooms => throw new NotImplementedException();
+        private readonly HotelDbContext _dbcontext;
+        public UnitOfWork(HotelDbContext dbContext )
+        {
+            _dbcontext = dbContext;
 
-        public IGuestRepository Guests => throw new NotImplementedException();
+            Rooms = new RoomRepository(_dbcontext);
+            Guests = new GuestRepository(_dbcontext);
+            Bookings = new BookingRepository(_dbcontext);
+        }
+        public IRoomRepository Rooms { get; private set; }
 
-        public IBookingRepository Bookings => throw new NotImplementedException();
+        public IBookingRepository Bookings { get; private set; }
+        public IGuestRepository Guests { get; private set; }
 
         public Task<int> CompleteAsync()
         {

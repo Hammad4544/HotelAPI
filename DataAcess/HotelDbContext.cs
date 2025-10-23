@@ -31,6 +31,12 @@ namespace DataAcess
                 .WithMany(g => g.Bookings)
                 .HasForeignKey(b => b.GuestId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Booking>()
+                .HasOne(b=>b.User)
+                .WithMany()
+                .HasForeignKey(b=>b.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

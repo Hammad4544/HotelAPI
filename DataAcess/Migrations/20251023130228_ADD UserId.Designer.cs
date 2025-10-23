@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAcess.Migrations
 {
     [DbContext(typeof(HotelDbContext))]
-    [Migration("20251021160507_IdentityTable")]
-    partial class IdentityTable
+    [Migration("20251023130228_ADD UserId")]
+    partial class ADDUserId
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -246,11 +246,17 @@ namespace DataAcess.Migrations
                     b.Property<int>("RoomId")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("BookingId");
 
                     b.HasIndex("GuestId");
 
                     b.HasIndex("RoomId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Bookings");
                 });
@@ -372,9 +378,17 @@ namespace DataAcess.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Models.Entities.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Guest");
 
                     b.Navigation("Room");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Models.Entities.Guest", b =>

@@ -23,14 +23,16 @@ namespace DataAcess.Repositories.Implementations
         public IBookingRepository Bookings { get; private set; }
         public IGuestRepository Guests { get; private set; }
 
-        public Task<int> CompleteAsync()
+        public Task CompleteAsync()
         {
-            throw new NotImplementedException();
+            return _dbcontext.SaveChangesAsync();
+            
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            
+            _dbcontext.Dispose();
         }
     }
 }

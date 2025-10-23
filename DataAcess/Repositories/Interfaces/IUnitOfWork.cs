@@ -12,6 +12,6 @@ namespace DataAcess.Repositories.Interfaces
         IRoomRepository Rooms { get; }
         IGuestRepository Guests { get; }
         IBookingRepository Bookings { get; }
-        Task<int> CompleteAsync();
+        Task CompleteAsync();
     }
 }

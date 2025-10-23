@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAcess.Migrations
 {
     /// <inheritdoc />
-    public partial class IdentityTable : Migration
+    public partial class ADDUserId : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -197,11 +197,18 @@ namespace DataAcess.Migrations
                     GuestId = table.Column<int>(type: "int", nullable: false),
                     RoomId = table.Column<int>(type: "int", nullable: false),
                     CheckInDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CheckOutDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CheckOutDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bookings", x => x.BookingId);
+                    table.ForeignKey(
+                        name: "FK_Bookings_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Bookings_Guests_GuestId",
                         column: x => x.GuestId,
@@ -264,6 +271,11 @@ namespace DataAcess.Migrations
                 name: "IX_Bookings_RoomId",
                 table: "Bookings",
                 column: "RoomId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bookings_UserId",
+                table: "Bookings",
+                column: "UserId");
         }
 
         /// <inheritdoc />

@@ -243,11 +243,17 @@ namespace DataAcess.Migrations
                     b.Property<int>("RoomId")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("BookingId");
 
                     b.HasIndex("GuestId");
 
                     b.HasIndex("RoomId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Bookings");
                 });
@@ -369,9 +375,17 @@ namespace DataAcess.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Models.Entities.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Guest");
 
                     b.Navigation("Room");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Models.Entities.Guest", b =>

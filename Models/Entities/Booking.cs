@@ -16,5 +16,7 @@ namespace Models.Entities
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
       
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

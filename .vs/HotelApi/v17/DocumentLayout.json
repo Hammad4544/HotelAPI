@@ -3,8 +3,36 @@
   "WorkspaceRootPath": "D:\\Hammad\\App_VS\\HotelApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Hammad\\App_VS\\HotelApi\\DataAcess\\Migrations\\20251021160507_IdentityTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DataAcess\\Migrations\\20251021160507_IdentityTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|d:\\hammad\\app_vs\\hotelapi\\models\\dtos\\booking\\createbookingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|solutionrelative:models\\dtos\\booking\\createbookingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|d:\\hammad\\app_vs\\hotelapi\\models\\entities\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|solutionrelative:models\\entities\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|d:\\hammad\\app_vs\\hotelapi\\models\\entities\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|solutionrelative:models\\entities\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|d:\\hammad\\app_vs\\hotelapi\\models\\entities\\guest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|solutionrelative:models\\entities\\guest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelapi\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|solutionrelative:hotelapi\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|solutionrelative:hotelapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFECB352-B1A4-4AFE-B359-F888C6E3A645}|DataAcess\\DataAcess.csproj|d:\\hammad\\app_vs\\hotelapi\\dataacess\\repositories\\implementations\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFECB352-B1A4-4AFE-B359-F888C6E3A645}|DataAcess\\DataAcess.csproj|solutionrelative:dataacess\\repositories\\implementations\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|solutionrelative:hotelapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,16 +50,100 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20251021160507_IdentityTable.cs",
-              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\DataAcess\\Migrations\\20251021160507_IdentityTable.cs",
-              "RelativeDocumentMoniker": "DataAcess\\Migrations\\20251021160507_IdentityTable.cs",
-              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\DataAcess\\Migrations\\20251021160507_IdentityTable.cs",
-              "RelativeToolTip": "DataAcess\\Migrations\\20251021160507_IdentityTable.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAQwDsAAABUAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\Models\\Entities\\Booking.cs",
+              "RelativeDocumentMoniker": "Models\\Entities\\Booking.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\Models\\Entities\\Booking.cs",
+              "RelativeToolTip": "Models\\Entities\\Booking.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T16:05:08.137Z",
+              "WhenOpened": "2025-10-23T15:09:13.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Room.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\Models\\Entities\\Room.cs",
+              "RelativeDocumentMoniker": "Models\\Entities\\Room.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\Models\\Entities\\Room.cs",
+              "RelativeToolTip": "Models\\Entities\\Room.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T15:09:09.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Guest.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\Models\\Entities\\Guest.cs",
+              "RelativeDocumentMoniker": "Models\\Entities\\Guest.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\Models\\Entities\\Guest.cs",
+              "RelativeToolTip": "Models\\Entities\\Guest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T15:09:06.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateBookingDTO.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\Models\\DTOS\\Booking\\CreateBookingDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOS\\Booking\\CreateBookingDTO.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\Models\\DTOS\\Booking\\CreateBookingDTO.cs",
+              "RelativeToolTip": "Models\\DTOS\\Booking\\CreateBookingDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T15:04:34.239Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "HotelApi\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "HotelApi\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwD4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T14:45:19.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "HotelApi\\Controllers\\BookingController.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "HotelApi\\Controllers\\BookingController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwD8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T14:41:08.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\DataAcess\\Repositories\\Implementations\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "DataAcess\\Repositories\\Implementations\\UnitOfWork.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\DataAcess\\Repositories\\Implementations\\UnitOfWork.cs",
+              "RelativeToolTip": "DataAcess\\Repositories\\Implementations\\UnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T14:37:28.795Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Program.cs",
+              "RelativeDocumentMoniker": "HotelApi\\Program.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Program.cs",
+              "RelativeToolTip": "HotelApi\\Program.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAQwEMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T14:36:14.987Z"
             }
           ]
         }

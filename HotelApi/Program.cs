@@ -2,6 +2,8 @@
 using DataAcess;
 using DataAcess.Repositories.Implementations;
 using DataAcess.Repositories.Interfaces;
+using HotelServices.Implementation;
+using HotelServices.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -70,7 +72,7 @@ namespace HotelApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-
+            builder.Services.AddScoped<IBookingService,BookingService>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IGuestRepository, GuestRepository>();
             builder.Services.AddScoped<IBookingRepository, BookingRepository>();

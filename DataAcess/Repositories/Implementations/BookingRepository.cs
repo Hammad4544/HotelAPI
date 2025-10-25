@@ -26,10 +26,10 @@ namespace DataAcess.Repositories.Implementations
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Booking>> GetBookingsByGuestIdAsync(int guestId)
+        public async Task<IEnumerable<Booking>> GetBookingsByGuestIdAsync(string guestId)
         {
             return await _dbcontext.Bookings
-                .Where(b => b.GuestId == guestId)
+                .Where(b => b.UserId == guestId)
                 .ToListAsync();
         }
     }

@@ -12,7 +12,7 @@ namespace DataAcess
     public class HotelDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Room> Rooms { get; set; }
-        public DbSet<Guest> Guests { get; set; }
+        public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public HotelDbContext(DbContextOptions<HotelDbContext> options) : base(options)
         {
@@ -27,9 +27,9 @@ namespace DataAcess
                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Booking>()
-                .HasOne(b => b.Guest)
+                .HasOne(b => b.User)
                 .WithMany(g => g.Bookings)
-                .HasForeignKey(b => b.GuestId)
+                .HasForeignKey(b => b.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Booking>()

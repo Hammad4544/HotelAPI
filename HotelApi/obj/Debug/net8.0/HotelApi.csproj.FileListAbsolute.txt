@@ -157,3 +157,4 @@ D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Microsoft.AspNetCore.Identit
 D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 D:\Hammad\App_VS\HotelApi\HotelApi\obj\Debug\net8.0\HotelApi.sourcelink.json
+D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\AutoMapper.dll

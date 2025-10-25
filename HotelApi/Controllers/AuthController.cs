@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Models.Entities;
 using System.IdentityModel.Tokens.Jwt;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using System.Security.Claims;
+using System.Text;
 
 namespace HotelApi.Controllers
 {
@@ -28,7 +29,8 @@ namespace HotelApi.Controllers
             var user = new ApplicationUser
             {
                 UserName = model.Email,
-                Email = model.Email
+                Email = model.Email,
+                FullName=model.FullName
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -50,6 +52,15 @@ namespace HotelApi.Controllers
 
             var token = GenerateJwtToken(user);
             return Ok(new { token });
+        }
+        [HttpGet("me")]
+        [Authorize]
+        public async Task<IActionResult> GetCurrentUser()
+        {
+            var userId = User.FindFirst("uid")?.Value;
+            if (userId == null) return Unauthorized();
+            var user = await _userManager.FindByIdAsync(userId);
+            return Ok(new { user.Id, user.Email, user.FullName });
         }
 
         // 🧩 توليد الـ JWT Token
@@ -82,6 +93,7 @@ namespace HotelApi.Controllers
     {
         public string Email { get; set; }
         public string Password { get; set; }
+        public string FullName { get; set; }
     }
 
     public class LoginDto

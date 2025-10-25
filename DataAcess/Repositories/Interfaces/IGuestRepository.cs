@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DataAcess.Repositories.Interfaces
 {
-    public interface IGuestRepository: IGenericRepository<Guest>
+    public interface IGuestRepository: IGenericRepository<ApplicationUser>
     {
-        Task<Guest?> GetGuestWithBookingsAsync(int guestId);
+        Task<ApplicationUser?> GetGuestWithBookingsAsync(string UserID);
 
     }
 }

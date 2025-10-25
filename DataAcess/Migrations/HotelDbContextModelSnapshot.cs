@@ -231,14 +231,14 @@ namespace DataAcess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingId"));
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("CheckInDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CheckOutDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("GuestId")
-                        .HasColumnType("int");
 
                     b.Property<int>("RoomId")
                         .HasColumnType("int");
@@ -249,38 +249,13 @@ namespace DataAcess.Migrations
 
                     b.HasKey("BookingId");
 
-                    b.HasIndex("GuestId");
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("RoomId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Bookings");
-                });
-
-            modelBuilder.Entity("Models.Entities.Guest", b =>
-                {
-                    b.Property<int>("GuestId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GuestId"));
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("GuestId");
-
-                    b.ToTable("Guests");
                 });
 
             modelBuilder.Entity("Models.Entities.Room", b =>
@@ -363,11 +338,9 @@ namespace DataAcess.Migrations
 
             modelBuilder.Entity("Models.Entities.Booking", b =>
                 {
-                    b.HasOne("Models.Entities.Guest", "Guest")
+                    b.HasOne("Models.Entities.ApplicationUser", null)
                         .WithMany("Bookings")
-                        .HasForeignKey("GuestId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("ApplicationUserId");
 
                     b.HasOne("Models.Entities.Room", "Room")
                         .WithMany("Bookings")
@@ -381,14 +354,12 @@ namespace DataAcess.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Guest");
-
                     b.Navigation("Room");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Models.Entities.Guest", b =>
+            modelBuilder.Entity("Models.Entities.ApplicationUser", b =>
                 {
                     b.Navigation("Bookings");
                 });

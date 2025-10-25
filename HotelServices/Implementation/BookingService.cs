@@ -1,5 +1,6 @@
 ﻿using DataAcess.Repositories.Interfaces;
 using HotelServices.Interfaces;
+using Models.DTOS.Booking;
 using Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,16 @@ namespace HotelServices.Implementation
             _unitofwork= unitOfWork;
 
         }
-        public async Task<Booking> CreateBookingAsync(Booking booking, string userId)
+        public async Task<Booking> CreateBookingAsync(CreateBookingDTO Dto, string userId)
         {
-            booking.UserId = userId;
+           var booking = new Booking
+            {
+                
+                RoomId = Dto.RoomId,
+                CheckInDate = Dto.CheckInDate,
+                CheckOutDate = Dto.CheckOutDate,
+                UserId = userId
+            };
             await _unitofwork.Bookings.AddAsync(booking);
             await _unitofwork.CompleteAsync();
             return booking;
@@ -53,14 +61,14 @@ namespace HotelServices.Implementation
 
         }
 
-        public async Task<bool> UpdateBookingAsync(int id, Booking updatedBooking, string userId)
+        public async Task<bool> UpdateBookingAsync(int id, UpdateBookingDto updatedBooking, string userId)
         {
             var existingBooking = await _unitofwork.Bookings.GetByIdAsync(id);
             if (existingBooking == null || existingBooking.UserId != userId)
             {
                 return false;
             }
-            existingBooking.GuestId = updatedBooking.GuestId;
+            
             existingBooking.RoomId = updatedBooking.RoomId;
             existingBooking.CheckInDate = updatedBooking.CheckInDate;
             existingBooking.CheckOutDate = updatedBooking.CheckOutDate;

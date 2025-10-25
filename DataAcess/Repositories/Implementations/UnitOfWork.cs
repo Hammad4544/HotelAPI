@@ -15,13 +15,13 @@ namespace DataAcess.Repositories.Implementations
             _dbcontext = dbContext;
 
             Rooms = new RoomRepository(_dbcontext);
-            Guests = new GuestRepository(_dbcontext);
+            Users = new GuestRepository(_dbcontext);
             Bookings = new BookingRepository(_dbcontext);
         }
         public IRoomRepository Rooms { get; private set; }
 
         public IBookingRepository Bookings { get; private set; }
-        public IGuestRepository Guests { get; private set; }
+        public IGuestRepository Users { get; private set; }
 
         public Task CompleteAsync()
         {

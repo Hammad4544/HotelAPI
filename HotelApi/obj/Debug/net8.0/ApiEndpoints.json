@@ -33,41 +33,15 @@
   },
   {
     "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "GetAllBookings",
-    "RelativePath": "api/Booking/api/AllBooking",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "GetBookingById",
-    "RelativePath": "api/Booking/api/BookingById/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HotelApi.Controllers.BookingController",
     "Method": "CreateBooking",
-    "RelativePath": "api/Booking/api/CreateBooking",
+    "RelativePath": "api/Booking/CreateBooking",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "booking",
-        "Type": "Models.Entities.Booking",
+        "Type": "Models.DTOS.Booking.CreateBookingDTO",
         "IsRequired": true
       }
     ],
@@ -76,7 +50,7 @@
   {
     "ContainingType": "HotelApi.Controllers.BookingController",
     "Method": "DeleteBooking",
-    "RelativePath": "api/Booking/api/DeleteBooking/{id}",
+    "RelativePath": "api/Booking/DeleteBooking/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -91,8 +65,34 @@
   },
   {
     "ContainingType": "HotelApi.Controllers.BookingController",
+    "Method": "GetAllBookings",
+    "RelativePath": "api/Booking/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.BookingController",
+    "Method": "GetBookingById",
+    "RelativePath": "api/Booking/GetBookingById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.BookingController",
     "Method": "UpdateBooking",
-    "RelativePath": "api/Booking/api/UpdateBooking/{id}",
+    "RelativePath": "api/Booking/UpdateBooking/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -104,7 +104,86 @@
       },
       {
         "Name": "updatedBooking",
-        "Type": "Models.Entities.Booking",
+        "Type": "Models.DTOS.Booking.UpdateBookingDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.RoomController",
+    "Method": "Create",
+    "RelativePath": "api/Room/CreateRoom",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "room",
+        "Type": "Models.Entities.Room",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.RoomController",
+    "Method": "Delete",
+    "RelativePath": "api/Room/DeleteRoom/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.RoomController",
+    "Method": "GetAll",
+    "RelativePath": "api/Room/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.RoomController",
+    "Method": "GetById",
+    "RelativePath": "api/Room/GetRoomById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.RoomController",
+    "Method": "Update",
+    "RelativePath": "api/Room/UpdateRoom/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedRoom",
+        "Type": "Models.Entities.Room",
         "IsRequired": true
       }
     ],

@@ -1,4 +1,5 @@
-﻿using Models.Entities;
+﻿using Models.DTOS.Booking;
+using Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace HotelServices.Interfaces
     {
         Task<IEnumerable<Booking>> GetAllBookingsAsync(string userId);
         Task<Booking?> GetBookingByIdAsync(int id, string userId);
-        Task<Booking> CreateBookingAsync(Booking booking, string userId);
-        Task<bool> UpdateBookingAsync(int id, Booking updatedBooking, string userId);
+        Task<Booking> CreateBookingAsync(CreateBookingDTO Dto, string userId);
+        Task<bool> UpdateBookingAsync(int id, UpdateBookingDto updatedBooking, string userId);
         Task<bool> DeleteBookingAsync(int id , string userId);
     }
 }

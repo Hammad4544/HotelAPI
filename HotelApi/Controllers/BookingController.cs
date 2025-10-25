@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Models.DTOS.Booking;
 using Models.Entities;
 
 namespace HotelApi.Controllers
@@ -17,7 +18,7 @@ namespace HotelApi.Controllers
             _bookingService = bookingService;
         }
         // Controller actions would go here
-        [HttpGet("api/AllBooking")]
+        [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllBookings()
         {
             try
@@ -35,7 +36,7 @@ namespace HotelApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpGet("api/BookingById/{id}")]
+        [HttpGet("GetBookingById/{id}")]
         public async Task<IActionResult> GetBookingById(int id)
         {
             try
@@ -57,8 +58,8 @@ namespace HotelApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost("api/CreateBooking")]
-        public async Task<IActionResult> CreateBooking([FromBody] Booking booking)
+        [HttpPost("CreateBooking")]
+        public async Task<IActionResult> CreateBooking([FromBody] CreateBookingDTO booking)
         {
             try
             {
@@ -75,8 +76,8 @@ namespace HotelApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPut("api/UpdateBooking/{id}")]
-        public async Task<IActionResult> UpdateBooking(int id, [FromBody] Booking updatedBooking)
+        [HttpPut("UpdateBooking/{id}")]
+        public async Task<IActionResult> UpdateBooking(int id, [FromBody] UpdateBookingDto updatedBooking)
         {
             try { 
             
@@ -95,7 +96,7 @@ namespace HotelApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpDelete("api/DeleteBooking/{id}")]
+        [HttpDelete("DeleteBooking/{id}")]
         public async Task<IActionResult> DeleteBooking(int id)
         {
             try

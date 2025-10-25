@@ -9,7 +9,7 @@ namespace DataAcess.Repositories.Interfaces
 {
     public interface IBookingRepository: IGenericRepository<Booking>
     {
-        Task<IEnumerable<Booking>> GetBookingsByGuestIdAsync(int guestId);
+        Task<IEnumerable<Booking>> GetBookingsByGuestIdAsync(string guestId);
         Task<IEnumerable<Booking>> GetActiveBookingsAsync();
 
     }

@@ -7,8 +7,12 @@ using HotelServices.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Models.DTOS.Booking;
 using Models.Entities;
+using Models.Mapper;
+using System.Reflection;
 using System.Text;
 
 namespace HotelApi
@@ -71,6 +75,10 @@ namespace HotelApi
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly(),typeof(MappingProfile).Assembly);
+
+
 
             builder.Services.AddScoped<IBookingService,BookingService>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();

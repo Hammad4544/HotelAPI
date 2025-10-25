@@ -9,14 +9,12 @@ namespace Models.Entities
     public class Booking
     {
         public int BookingId { get; set; }
-        public int GuestId { get; set; }
-        public Guest? Guest { get; set; } 
+        public string UserId { get; set; }
+        public ApplicationUser? User { get; set; } 
         public int RoomId { get; set; }
         public Room? Room { get; set; }
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
       
-        public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
     }
 }

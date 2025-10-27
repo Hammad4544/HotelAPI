@@ -46,6 +46,11 @@ namespace HotelServices.Implementation
             return true;
         }
 
+        public async Task<IEnumerable<Booking>> GetActiveBookings()
+        {
+           return await _unitofwork.Bookings.GetActiveBookingsAsync();
+        }
+
         public async Task<IEnumerable<Booking>> GetAllBookingsAsync(string userId)
         {
            return await _unitofwork.Bookings.GetAllAsync();
@@ -59,6 +64,11 @@ namespace HotelServices.Implementation
           var book = await _unitofwork.Bookings.GetByIdAsync(id);
             return (book.UserId == userId) ? book : null;
 
+        }
+
+        public async Task<IEnumerable<Booking>> GetBookingsByGuestId(string guestId)
+        {
+           return await _unitofwork.Bookings.GetBookingsByGuestIdAsync(guestId);
         }
 
         public async Task<bool> UpdateBookingAsync(int id, UpdateBookingDto updatedBooking, string userId)

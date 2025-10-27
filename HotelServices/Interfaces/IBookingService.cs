@@ -15,5 +15,7 @@ namespace HotelServices.Interfaces
         Task<Booking> CreateBookingAsync(CreateBookingDTO Dto, string userId);
         Task<bool> UpdateBookingAsync(int id, UpdateBookingDto updatedBooking, string userId);
         Task<bool> DeleteBookingAsync(int id , string userId);
+        Task<IEnumerable<Booking>> GetBookingsByGuestId(string guestId);
+        Task<IEnumerable<Booking>> GetActiveBookings();
     }
 }

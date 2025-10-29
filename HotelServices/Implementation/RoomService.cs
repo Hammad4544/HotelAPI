@@ -1,74 +1,70 @@
-﻿using DataAcess.Repositories.Interfaces;
+﻿using AutoMapper;
+using DataAcess.Repositories.Interfaces;
 using HotelServices.Interfaces;
-using Microsoft.EntityFrameworkCore.Query.Internal;
+using Models.DTOS.Room;
 using Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotelServices.Implementation
 {
     public class RoomService : IRoomService
     {
-        private readonly IUnitOfWork _unitofwork;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public RoomService(IUnitOfWork unitOfWork) {
-        
-            _unitofwork = unitOfWork;
-        }
-        public async Task<Room> CreateRoom(Room room)
+        public RoomService(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            var r = await _unitofwork.Rooms.GetByIdAsync(room.RoomId);
-            await _unitofwork.Rooms.AddAsync(room);
-             await _unitofwork.CompleteAsync();
-            return r;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
+        }
+
+        public async Task<RoomResponseDto> CreateRoom(CreateRoomDto dto)
+        {
+            var room = _mapper.Map<Room>(dto);
+            await _unitOfWork.Rooms.AddAsync(room);
+            await _unitOfWork.CompleteAsync();
+
+            return _mapper.Map<RoomResponseDto>(room);
         }
 
         public async Task<bool> DeleteRoom(int id)
         {
-           var room = await _unitofwork.Rooms.GetByIdAsync(id);
+            var room = await _unitOfWork.Rooms.GetByIdAsync(id);
             if (room == null)
-            {
                 return false;
-            }
-             _unitofwork.Rooms.Delete(room);
-            await _unitofwork.CompleteAsync();
+
+            _unitOfWork.Rooms.Delete(room);
+            await _unitOfWork.CompleteAsync();
             return true;
-
         }
 
-        public async Task<IEnumerable<Room>> GetAllRooms()
+        public async Task<IEnumerable<RoomResponseDto>> GetAllRooms()
         {
-           var Rooms = await _unitofwork.Rooms.GetAllAsync();
-            return Rooms;
+            var rooms = await _unitOfWork.Rooms.GetAllAsync();
+            return  _mapper.Map<IEnumerable<RoomResponseDto>>(rooms);
         }
 
-        public Task<IEnumerable<Room>> GetAvailableRooms()
+        public async Task<IEnumerable<RoomResponseDto>> GetAvailableRooms()
         {
-            return _unitofwork.Rooms.GetAvailableRoomsAsync();
+            var availableRooms = await _unitOfWork.Rooms.GetAvailableRoomsAsync();
+            return _mapper.Map<IEnumerable<RoomResponseDto>>(availableRooms);
         }
 
-        public async Task<Room?> GetRoomById(int id)
+        public async Task<RoomResponseDto?> GetRoomById(int id)
         {
-           var room = await _unitofwork.Rooms.GetByIdAsync(id);
-            return room;
+            var room = await _unitOfWork.Rooms.GetByIdAsync(id);
+            return _mapper.Map<RoomResponseDto?>(room);
         }
 
-        public async Task<bool> UpdateRoom(int id, Room updatedRoom)
+        public async Task<bool> UpdateRoom(int id, UpdateRoomDto dto)
         {
-            var exctingRoom = await _unitofwork.Rooms.GetByIdAsync(id);
-            if (exctingRoom == null)
-            {
+            var existingRoom = await _unitOfWork.Rooms.GetByIdAsync(id);
+            if (existingRoom == null)
                 return false;
-            }
 
-            exctingRoom.PricePerNight = updatedRoom.PricePerNight;
-            exctingRoom.Number = updatedRoom.Number;
-            exctingRoom.IsAvailable =updatedRoom.IsAvailable;
-             _unitofwork.Rooms.Update(exctingRoom);
-           await _unitofwork.CompleteAsync(); 
+            _mapper.Map(dto, existingRoom);
+
+            _unitOfWork.Rooms.Update(existingRoom);
+            await _unitOfWork.CompleteAsync();
             return true;
         }
     }

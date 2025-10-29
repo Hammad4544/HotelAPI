@@ -1,7 +1,11 @@
 ﻿using HotelServices.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Models.DTOS.Booking;
+using Models.DTOS.Room;
+using Models.Entities;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 
 namespace HotelApi.Controllers
 {
@@ -15,9 +19,9 @@ namespace HotelApi.Controllers
              _roomService = roomService;
         }
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var rooms =  _roomService.GetAllRooms();
+            var rooms = await _roomService.GetAllRooms();
             return Ok(rooms);
         }
         [HttpGet("GetRoomById/{id}")]
@@ -31,13 +35,14 @@ namespace HotelApi.Controllers
             return Ok(room);
         }
         [HttpPost("CreateRoom")]
-        public async Task<IActionResult> Create([FromBody] Models.Entities.Room room)
+        public async Task<IActionResult> Create([FromBody] CreateRoomDto room)
         {
             var createdRoom = await _roomService.CreateRoom(room);
-            return CreatedAtAction(nameof(GetById), new { id = createdRoom.RoomId }, createdRoom);
+            return Ok(createdRoom);
+
         }
         [HttpPut("UpdateRoom/{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] Models.Entities.Room updatedRoom)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateRoomDto updatedRoom)
         {
             var result = await _roomService.UpdateRoom(id, updatedRoom);
             if (!result)

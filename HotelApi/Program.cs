@@ -1,7 +1,9 @@
 
+using AutoMapper;
 using DataAcess;
 using DataAcess.Repositories.Implementations;
 using DataAcess.Repositories.Interfaces;
+using HotelServices.Helpers;
 using HotelServices.Implementation;
 using HotelServices.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -9,12 +11,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Models.DTOS.Booking;
 using Models.Entities;
-using Models.Mapper;
-using System.Reflection;
 using System.Text;
-
 namespace HotelApi
 {
 
@@ -84,7 +82,21 @@ namespace HotelApi
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IGuestRepository, GuestRepository>();
             builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+            builder.Services.AddScoped<IRoomService, RoomService>();
 
+
+
+
+
+
+            // With the following:AutoMapper Configuration
+            builder.Services.AddAutoMapper(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+            });
+
+
+            
 
 
             var app = builder.Build();

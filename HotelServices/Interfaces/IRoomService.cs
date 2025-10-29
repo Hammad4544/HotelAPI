@@ -1,4 +1,5 @@
 ﻿using Models.DTOS.Booking;
+using Models.DTOS.Room;
 using Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,12 @@ namespace HotelServices.Interfaces
 {
     public interface IRoomService
     {
-        public Task<IEnumerable<Room>> GetAvailableRooms();
-        Task<Room?> GetRoomById(int id);
-        Task<Room> CreateRoom(Room room);
-        Task<bool> UpdateRoom(int id, Room updatedRoom);
+        public Task<IEnumerable<RoomResponseDto>> GetAvailableRooms();
+        Task<RoomResponseDto?> GetRoomById(int id);
+        Task<RoomResponseDto> CreateRoom(CreateRoomDto room);
+        Task<bool> UpdateRoom(int id, UpdateRoomDto updatedRoom);
         Task<bool> DeleteRoom(int id);
-        Task<IEnumerable<Room>> GetAllRooms();
+        Task<IEnumerable<RoomResponseDto>> GetAllRooms();
         //Task<IEnumerable<Booking>> GetAllBookingsAsync(string userId);
         //Task<Booking?> GetBookingByIdAsync(int id, string userId);
         //Task<Booking> CreateBookingAsync(CreateBookingDTO Dto, string userId);

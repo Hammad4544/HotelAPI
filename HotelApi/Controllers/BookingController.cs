@@ -9,7 +9,6 @@ namespace HotelApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class BookingController : ControllerBase
     {
         private readonly IBookingService _bookingService;
@@ -35,6 +34,16 @@ namespace HotelApi.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+        [HttpGet("GetActiveBooking")]
+        public async Task<IActionResult> GetActiveBooking()
+        {
+            var bookings = await _bookingService.GetActiveBookings();
+            if(bookings == null)
+            {
+                return NotFound();
+            }
+            return Ok(bookings);
         }
         [HttpGet("GetBookingById/{id}")]
         public async Task<IActionResult> GetBookingById(int id)

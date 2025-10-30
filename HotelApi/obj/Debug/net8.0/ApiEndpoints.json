@@ -75,6 +75,16 @@
   },
   {
     "ContainingType": "HotelApi.Controllers.BookingController",
+    "Method": "GetActiveBooking",
+    "RelativePath": "api/Booking/GetActiveBooking",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.BookingController",
     "Method": "GetAllBookings",
     "RelativePath": "api/Booking/GetAll",
     "HttpMethod": "GET",

@@ -25,7 +25,7 @@ namespace HotelServices.Implementation
             await _unitOfWork.Bookings.AddAsync(booking);
             await _unitOfWork.CompleteAsync();
 
-            // تحميل الغرفة بعد الحفظ
+   
             var room = await _unitOfWork.Rooms.GetByIdAsync(booking.RoomId);
             booking.Room = room;
 

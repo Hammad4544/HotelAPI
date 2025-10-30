@@ -91,6 +91,18 @@
         }
       }
     },
+    "/api/Booking/GetActiveBooking": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Booking/GetBookingById/{id}": {
       "get": {
         "tags": [

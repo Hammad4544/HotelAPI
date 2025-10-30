@@ -23,6 +23,8 @@ namespace HotelServices.Helpers
 
             CreateMap<CreateBookingDTO, Booking>();
             CreateMap<UpdateBookingDto, Booking>();
+            CreateMap<Booking, CreateBookingDTO>();
+            CreateMap<Booking, UpdateBookingDto>();
         }
     }
 }

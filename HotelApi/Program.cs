@@ -83,6 +83,9 @@ namespace HotelApi
             builder.Services.AddScoped<IGuestRepository, GuestRepository>();
             builder.Services.AddScoped<IBookingRepository, BookingRepository>();
             builder.Services.AddScoped<IRoomService, RoomService>();
+            builder.Services.AddScoped<PaymentService>();
+      
+
 
 
 

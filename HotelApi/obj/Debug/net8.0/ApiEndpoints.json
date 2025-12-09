@@ -131,6 +131,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PaymentController",
+    "Method": "CreateCheckoutSession",
+    "RelativePath": "api/Payment/create-checkout-session",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "PaymentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "HotelApi.Controllers.RoomController",
     "Method": "Create",
     "RelativePath": "api/Room/CreateRoom",

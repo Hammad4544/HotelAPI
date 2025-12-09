@@ -20,10 +20,12 @@ namespace DataAcess.Repositories.Implementations
 
         public async Task<ApplicationUser?> GetGuestWithBookingsAsync(string Userid)
         {
-           return await _dbcontext.Users
-                .Where(g => g.Id == Userid)
-                .Include(g => g.Bookings)
-                .FirstOrDefaultAsync();
+            return await _dbcontext.Users
+                 .Where(g => g.Id == Userid)
+                 .Include(g => g.Bookings)
+                 .FirstOrDefaultAsync();
         }
+        //public async Task<>
+
     }
 }

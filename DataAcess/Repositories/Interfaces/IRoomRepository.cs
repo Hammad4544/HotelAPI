@@ -9,6 +9,8 @@ namespace DataAcess.Repositories.Interfaces
 {
     public interface IRoomRepository : IGenericRepository<Room>
     {
+        Task<Room> GetByIdWhithImages(int id);
+        Task<IEnumerable<Room>> GetAllWithImages();
         Task<IEnumerable<Room>> GetAvailableRoomsAsync();
     }
 }

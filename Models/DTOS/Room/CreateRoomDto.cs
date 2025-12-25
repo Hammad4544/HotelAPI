@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,7 @@ namespace Models.DTOS.Room
         public string Type { set; get; } = string.Empty;
         public decimal PricePerNight { set; get; }
         public bool IsAvailable { set; get; }
+        public List<IFormFile> ? Images { set; get; } 
+
     }
 }

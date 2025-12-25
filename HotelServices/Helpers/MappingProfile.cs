@@ -10,8 +10,10 @@ namespace HotelServices.Helpers
         public MappingProfile()
         {
             // 🟩 Room Mappings
-            CreateMap<Room, RoomResponseDto>().ReverseMap();
-            CreateMap<CreateRoomDto, Room>();
+            CreateMap<Room, RoomResponseDto>()
+                .ForMember(dest=>dest.Images,opt=> opt.MapFrom(ser=>ser.Images.Select(i=>i.ImageUrl)))
+                .ReverseMap();
+            CreateMap<CreateRoomDto, Room>().ForMember(dest => dest.Images, opt => opt.Ignore()); ;
             CreateMap<UpdateRoomDto, Room>();
             CreateMap<Room, CreateRoomDto>();
             CreateMap<Room, UpdateRoomDto>();

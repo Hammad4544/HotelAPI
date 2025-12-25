@@ -82,6 +82,7 @@ namespace HotelApi
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IGuestRepository, GuestRepository>();
             builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+            builder.Services.AddScoped<IRoomRepository, RoomRepository>();  
             builder.Services.AddScoped<IRoomService, RoomService>();
             builder.Services.AddScoped<PaymentService>();
       
@@ -113,6 +114,7 @@ namespace HotelApi
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseStaticFiles();
 
 
             app.MapControllers();

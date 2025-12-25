@@ -14,6 +14,7 @@ namespace Models.Entities
         public decimal PricePerNight { set; get; }
         public bool IsAvailable { set; get; }
         public ICollection<Booking>? Bookings { set; get; }
+        public ICollection<RoomImage> Images { set; get; }= new List<RoomImage>();
 
     }
 }

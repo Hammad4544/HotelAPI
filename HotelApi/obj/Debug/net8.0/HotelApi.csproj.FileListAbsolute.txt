@@ -151,3 +151,4 @@ D:\Hammad\App_VS\HotelApi\HotelApi\obj\Debug\net8.0\HotelApi.sourcelink.json
 D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\AutoMapper.dll
 D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Stripe.net.dll
+D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\HotelApi.staticwebassets.runtime.json

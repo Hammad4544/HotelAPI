@@ -18,9 +18,20 @@ namespace DataAcess.Repositories.Implementations
             _dbcontext = dbContext;
         }
 
+        public async Task<IEnumerable<Room>> GetAllWithImages()
+        {
+            return await _dbcontext.Rooms.Include(r => r.Images).ToListAsync();
+        }
+
         public async Task<IEnumerable<Room>> GetAvailableRoomsAsync()
         {
            return await _dbcontext.Rooms.Where(r => r.IsAvailable).ToListAsync();
+        }
+
+        public async Task<Room> GetByIdWhithImages(int id)
+        {
+
+            return await _dbcontext.Rooms.Include(r => r.Images).FirstOrDefaultAsync(r => r.RoomId == id);
         }
     }
 }

@@ -12,6 +12,8 @@ namespace DataAcess.Repositories.Interfaces
         IRoomRepository Rooms { get; }
         IGuestRepository Users { get; }
         IBookingRepository Bookings { get; }
+         IRoomImageRepository RoomImages { get; }
+
         Task CompleteAsync();
     }
 }

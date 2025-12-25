@@ -295,19 +295,48 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/CreateRoomDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateRoomDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateRoomDto"
+                "type": "object",
+                "properties": {
+                  "Number": {
+                    "type": "string"
+                  },
+                  "Type": {
+                    "type": "string"
+                  },
+                  "PricePerNight": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "IsAvailable": {
+                    "type": "boolean"
+                  },
+                  "Images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Number": {
+                  "style": "form"
+                },
+                "Type": {
+                  "style": "form"
+                },
+                "PricePerNight": {
+                  "style": "form"
+                },
+                "IsAvailable": {
+                  "style": "form"
+                },
+                "Images": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -401,27 +430,6 @@
           "checkOutDate": {
             "type": "string",
             "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateRoomDto": {
-        "type": "object",
-        "properties": {
-          "number": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "pricePerNight": {
-            "type": "number",
-            "format": "double"
-          },
-          "isAvailable": {
-            "type": "boolean"
           }
         },
         "additionalProperties": false

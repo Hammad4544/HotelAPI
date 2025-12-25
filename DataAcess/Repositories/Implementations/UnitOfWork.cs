@@ -17,11 +17,14 @@ namespace DataAcess.Repositories.Implementations
             Rooms = new RoomRepository(_dbcontext);
             Users = new GuestRepository(_dbcontext);
             Bookings = new BookingRepository(_dbcontext);
+            RoomImages = new RoomImageRepository(_dbcontext);
         }
         public IRoomRepository Rooms { get; private set; }
 
         public IBookingRepository Bookings { get; private set; }
         public IGuestRepository Users { get; private set; }
+
+        public IRoomImageRepository RoomImages {  get; private set; }
 
         public Task CompleteAsync()
         {

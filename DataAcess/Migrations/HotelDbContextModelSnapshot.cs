@@ -285,6 +285,28 @@ namespace DataAcess.Migrations
                     b.ToTable("Rooms");
                 });
 
+            modelBuilder.Entity("Models.Entities.RoomImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoomId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("RoomImages");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -359,6 +381,17 @@ namespace DataAcess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Models.Entities.RoomImage", b =>
+                {
+                    b.HasOne("Models.Entities.Room", "Room")
+                        .WithMany("Images")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Room");
+                });
+
             modelBuilder.Entity("Models.Entities.ApplicationUser", b =>
                 {
                     b.Navigation("Bookings");
@@ -367,6 +400,8 @@ namespace DataAcess.Migrations
             modelBuilder.Entity("Models.Entities.Room", b =>
                 {
                     b.Navigation("Bookings");
+
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

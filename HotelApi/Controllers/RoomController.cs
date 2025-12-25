@@ -35,7 +35,7 @@ namespace HotelApi.Controllers
             return Ok(room);
         }
         [HttpPost("CreateRoom")]
-        public async Task<IActionResult> Create([FromBody] CreateRoomDto room)
+        public async Task<IActionResult> Create([FromForm] CreateRoomDto room)
         {
             var createdRoom = await _roomService.CreateRoom(room);
             return Ok(createdRoom);

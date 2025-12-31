@@ -312,6 +312,9 @@
                   "IsAvailable": {
                     "type": "boolean"
                   },
+                  "Description": {
+                    "type": "string"
+                  },
                   "Images": {
                     "type": "array",
                     "items": {
@@ -332,6 +335,9 @@
                   "style": "form"
                 },
                 "IsAvailable": {
+                  "style": "form"
+                },
+                "Description": {
                   "style": "form"
                 },
                 "Images": {
@@ -482,6 +488,10 @@
             "nullable": true
           },
           "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
             "type": "string",
             "nullable": true
           }

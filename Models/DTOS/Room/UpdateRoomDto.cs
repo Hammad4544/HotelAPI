@@ -11,6 +11,7 @@ namespace Models.DTOS.Room
         public string Number { set; get; } = string.Empty;
         public string Type { set; get; } = string.Empty;
         public decimal PricePerNight { set; get; }
+        public string Description { get; set; } = string.Empty;
         public bool IsAvailable { set; get; }
     }
 }

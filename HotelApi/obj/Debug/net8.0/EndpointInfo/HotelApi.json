@@ -531,6 +531,10 @@
             "type": "number",
             "format": "double"
           },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
           "isAvailable": {
             "type": "boolean"
           }

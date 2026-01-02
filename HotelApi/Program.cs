@@ -99,8 +99,22 @@ namespace HotelApi
                 cfg.AddProfile<MappingProfile>();
             });
 
+            // CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    policy =>
+                    {
+                        policy
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            });
 
-            
+
+
+
 
 
             var app = builder.Build();
@@ -112,6 +126,7 @@ namespace HotelApi
                 app.UseSwaggerUI();
             }
             app.UseHttpsRedirection();
+            app.UseCors("AllowAll");
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseStaticFiles();

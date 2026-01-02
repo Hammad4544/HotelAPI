@@ -4,3 +4,4 @@ wwwroot\Images\rooms\1004\c3e08dbb-2188-4591-98c8-10e19bcfeea2.jpeg
 wwwroot\Images\rooms\1006\78442d59-3816-4bd3-992a-ee3cf0260c19.png
 wwwroot\Images\rooms\1006\8279da3a-74c7-4da7-befd-23caa32dd7cc.png
 wwwroot\Images\rooms\1006\ee23308c-1a5b-4994-9e7b-7e611bc22be3.png
+wwwroot\Images\rooms\1007\37a15c2e-b043-4d43-8386-595c5fe8f12f.jpeg

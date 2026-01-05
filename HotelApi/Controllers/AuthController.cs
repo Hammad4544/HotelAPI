@@ -24,7 +24,7 @@ namespace HotelApi.Controllers
 
         // 🟢 Register Endpoint
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterDto model)
+        public async Task<IActionResult> Register([FromForm] RegisterDto model)
         {
             var user = new ApplicationUser
             {
@@ -44,7 +44,7 @@ namespace HotelApi.Controllers
 
         // 🔵 Login Endpoint
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginDto model)
+        public async Task<IActionResult> Login([FromForm] LoginDto model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
 

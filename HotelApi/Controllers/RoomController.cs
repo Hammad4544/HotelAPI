@@ -42,7 +42,7 @@ namespace HotelApi.Controllers
 
         }
         [HttpPut("UpdateRoom/{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] UpdateRoomDto updatedRoom)
+        public async Task<IActionResult> Update(int id, [FromForm] UpdateRoomDto updatedRoom)
         {
             var result = await _roomService.UpdateRoom(id, updatedRoom);
             if (!result)

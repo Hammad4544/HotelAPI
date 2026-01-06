@@ -14,7 +14,7 @@ namespace HotelServices.Helpers
                 .ForMember(dest=>dest.Images,opt=> opt.MapFrom(ser=>ser.Images.Select(i=>i.ImageUrl)))
                 .ReverseMap();
             CreateMap<CreateRoomDto, Room>().ForMember(dest => dest.Images, opt => opt.Ignore()); ;
-            CreateMap<UpdateRoomDto, Room>();
+            CreateMap<UpdateRoomDto, Room>().ForMember(dest => dest.Images, opt => opt.Ignore()); ;
             CreateMap<Room, CreateRoomDto>();
             CreateMap<Room, UpdateRoomDto>();
 

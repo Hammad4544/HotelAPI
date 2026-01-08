@@ -4,5 +4,6 @@ wwwroot\Images\rooms\1004\c3e08dbb-2188-4591-98c8-10e19bcfeea2.jpeg
 wwwroot\Images\rooms\1006\78442d59-3816-4bd3-992a-ee3cf0260c19.png
 wwwroot\Images\rooms\1006\8279da3a-74c7-4da7-befd-23caa32dd7cc.png
 wwwroot\Images\rooms\1006\ee23308c-1a5b-4994-9e7b-7e611bc22be3.png
-wwwroot\Images\rooms\1007\37a15c2e-b043-4d43-8386-595c5fe8f12f.jpeg
-wwwroot\Images\rooms\1008\6f1bf095-ff94-45f3-a026-0628526ba778.jpeg
+wwwroot\Images\rooms\1007\9bf2e9ef-d446-43c6-9732-47852fd631ba.jpeg
+wwwroot\Images\rooms\1008\a2c9f162-f5b8-42c9-b462-4a010d8eb174.png
+wwwroot\Images\rooms\1008\b2282fae-c583-47e1-a447-6539f877092c.jpeg

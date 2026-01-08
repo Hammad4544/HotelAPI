@@ -70,7 +70,27 @@ namespace HotelServices.Implementation
         public async Task<IEnumerable<RoomResponseDto>> GetAllRooms()
         {
             var rooms = await _roomRepository.GetAllWithImages();
-            return  _mapper.Map<IEnumerable<RoomResponseDto>>(rooms);
+            var result = rooms.Select(room =>
+            {
+
+                var currentBooking = room.Bookings.Where(d => DateTime.Now >= d.CheckInDate && DateTime.Now < d.CheckOutDate).FirstOrDefault();
+                return new RoomResponseDto
+                {
+                    RoomId = room.RoomId,
+                    Number = room.Number,
+                    Type = room.Type,
+                    PricePerNight = room.PricePerNight,
+                    IsAvailable = currentBooking == null,
+                    BookedUntil = currentBooking?.CheckOutDate,
+                    Description = room.Description,
+                    Images = room.Images?.Select(img => img.ImageUrl).ToList() ?? new List<string>()
+                };
+
+
+
+            });
+
+            return result;
         }
 
         public async Task<IEnumerable<RoomResponseDto>> GetAvailableRooms()

@@ -20,7 +20,7 @@ namespace DataAcess.Repositories.Implementations
 
         public async Task<IEnumerable<Room>> GetAllWithImages()
         {
-            return await _dbcontext.Rooms.Include(r => r.Images).ToListAsync();
+            return await _dbcontext.Rooms.Include(b=>b.Bookings).Include(r => r.Images).ToListAsync();
         }
 
         public async Task<IEnumerable<Room>> GetAvailableRoomsAsync()

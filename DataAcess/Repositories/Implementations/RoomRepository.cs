@@ -31,7 +31,7 @@ namespace DataAcess.Repositories.Implementations
         public async Task<Room> GetByIdWhithImages(int id)
         {
 
-            return await _dbcontext.Rooms.Include(r => r.Images).FirstOrDefaultAsync(r => r.RoomId == id);
+            return await _dbcontext.Rooms.Include(r => r.Images).Include(b=>b.Bookings).FirstOrDefaultAsync(r => r.RoomId == id);
         }
     }
 }

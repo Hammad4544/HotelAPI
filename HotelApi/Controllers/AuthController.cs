@@ -30,8 +30,8 @@ namespace HotelApi.Controllers
             {
                 UserName = model.Email,
                 Email = model.Email,
-                FullName=model.FullName,
-                PhoneNumber=model.PhoneNumber   
+                FullName = model.FullName,
+                PhoneNumber = model.PhoneNumber
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -39,7 +39,7 @@ namespace HotelApi.Controllers
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
 
-            return Ok("User registered successfully!");
+            return Ok(new { message = "success" });
         }
 
         // 🔵 Login Endpoint

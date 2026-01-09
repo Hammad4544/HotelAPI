@@ -70,10 +70,11 @@ namespace HotelServices.Implementation
         public async Task<IEnumerable<RoomResponseDto>> GetAllRooms()
         {
             var rooms = await _roomRepository.GetAllWithImages();
+            var now = DateTime.Now.Date;
             var result = rooms.Select(room =>
             {
 
-                var currentBooking = room.Bookings.Where(d => DateTime.Now >= d.CheckInDate && DateTime.Now < d.CheckOutDate).FirstOrDefault();
+                var currentBooking = room.Bookings.Where(d => d.CheckOutDate.Date> DateTime.Now.Date && d.CheckInDate.Date<= DateTime.Now.Date).FirstOrDefault();
                 return new RoomResponseDto
                 {
                     RoomId = room.RoomId,
@@ -102,7 +103,31 @@ namespace HotelServices.Implementation
         public async Task<RoomResponseDto?> GetRoomById(int id)
         {
             var room = await _roomRepository.GetByIdWhithImages(id);
-            return _mapper.Map<RoomResponseDto?>(room);
+
+            // 1. التأكد أن الغرفة موجودة أصلاً قبل الوصول لخصائصها
+            if (room == null)
+            {
+                return null;
+            }
+
+            // 2. استخدام DateTime.Now مرة واحدة لضمان الاتساق
+            var now = DateTime.Now.Date;
+
+            // 3. التحقق من وجود الحجز الحالي (مع التأكد أن القائمة ليست Null)
+            var currentBooking = room.Bookings?
+                .FirstOrDefault(d => now >= d.CheckInDate.Date && now < d.CheckOutDate.Date);
+
+            return new RoomResponseDto
+            {
+                RoomId = room.RoomId,
+                Number = room.Number,
+                Type = room.Type,
+                PricePerNight = room.PricePerNight,
+                IsAvailable = currentBooking == null,
+                BookedUntil = currentBooking?.CheckOutDate,
+                Description = room.Description,
+                Images = room.Images?.Select(img => img.ImageUrl).ToList() ?? new List<string>()
+            };
         }
 
         public async Task<bool> UpdateRoom(int id, UpdateRoomDto dto)

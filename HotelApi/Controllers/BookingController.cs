@@ -77,6 +77,19 @@ namespace HotelApi.Controllers
                 {
                     return Unauthorized("User Not Found");
                 }
+                if(booking == null)
+                {
+                    return BadRequest("Invalid booking data");
+                }
+                
+                if(booking.CheckInDate < DateTime.Now.Date)
+                {
+                    return BadRequest("Check-in date cannot be in the past.");
+                }
+                if (booking.CheckInDate >= booking.CheckOutDate)
+                {
+                    return BadRequest("Check-out date must be after check-in date.");
+                }
                 var createdBooking = await _bookingService.CreateBookingAsync(booking, userId);
                 return Ok(createdBooking);
             }

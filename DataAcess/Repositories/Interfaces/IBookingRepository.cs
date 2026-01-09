@@ -11,6 +11,7 @@ namespace DataAcess.Repositories.Interfaces
     {
         Task<IEnumerable<Booking>> GetBookingsByGuestIdAsync(string guestId);
         Task<IEnumerable<Booking>> GetActiveBookingsAsync();
+        Task<IEnumerable<Booking>> GetBookingsByRoomIdAsyn(int roomId);
 
     }
 }

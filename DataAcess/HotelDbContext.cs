@@ -15,6 +15,8 @@ namespace DataAcess
         public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<RoomImage> RoomImages { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Hotel> Hotels { get; set; }
         public HotelDbContext(DbContextOptions<HotelDbContext> options) : base(options)
         {
         }
@@ -38,6 +40,16 @@ namespace DataAcess
                 .WithMany()
                 .HasForeignKey(b=>b.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+
+            modelBuilder.Entity<Review>()
+               .HasOne(r => r.Hotel)
+               .WithMany(h => h.Reviews)
+               .HasForeignKey(r => r.HotelId);
+
+            modelBuilder.Entity<Review>()
+                .HasIndex(r => new { r.HotelId, r.UserId })
+                .IsUnique(); // user يقيّم مرة واحدة
         }
     }
 }

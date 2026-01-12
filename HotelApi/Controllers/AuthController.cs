@@ -14,15 +14,22 @@ namespace HotelApi.Controllers
     public class AuthController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
 
-        public AuthController(UserManager<ApplicationUser> userManager, IConfiguration configuration)
+        public AuthController(
+            UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole> roleManager,
+            IConfiguration configuration)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
             _configuration = configuration;
         }
 
-        // 🟢 Register Endpoint
+        // =========================
+        // 🟢 Register => User
+        // =========================
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromForm] RegisterDto model)
         {
@@ -35,53 +42,110 @@ namespace HotelApi.Controllers
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
-
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
 
-            return Ok(new { message = "success" });
+            // 🔹 أي Register عادي = User
+            await _userManager.AddToRoleAsync(user, "User");
+
+            return Ok("User registered successfully");
         }
 
-        // 🔵 Login Endpoint
+        // =========================
+        // 🔴 Create Admin (مرة واحدة)
+        // =========================
+        [HttpPost("create-admin")]
+        public async Task<IActionResult> CreateAdmin([FromForm] RegisterDto model)
+        {
+            var admins = await _userManager.GetUsersInRoleAsync("Admin");
+            if (admins.Any())
+                return BadRequest("Admin already exists");
+
+            var admin = new ApplicationUser
+            {
+                UserName = model.Email,
+                Email = model.Email,
+                FullName = model.FullName
+            };
+
+            var result = await _userManager.CreateAsync(admin, model.Password);
+            if (!result.Succeeded)
+                return BadRequest(result.Errors);
+
+            await _userManager.AddToRoleAsync(admin, "Admin");
+
+            return Ok("Admin created successfully");
+        }
+
+        // =========================
+        // 🔵 Login
+        // =========================
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromForm] LoginDto model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
 
             if (user == null || !await _userManager.CheckPasswordAsync(user, model.Password))
-                return Unauthorized("Invalid email or password.");
+                return Unauthorized("Invalid email or password");
 
-            var token = GenerateJwtToken(user);
+            var token = await GenerateJwtToken(user);
             return Ok(new { token });
         }
-        [HttpGet("me")]
+
+        // =========================
+        // 👤 Current User
+        // =========================
         [Authorize]
-        public async Task<IActionResult> GetCurrentUser()
+        [HttpGet("me")]
+        public async Task<IActionResult> Me()
         {
             var userId = User.FindFirst("uid")?.Value;
             if (userId == null) return Unauthorized();
+
             var user = await _userManager.FindByIdAsync(userId);
-            return Ok(new { user.Id, user.Email, user.FullName });
+            var roles = await _userManager.GetRolesAsync(user);
+
+            return Ok(new
+            {
+                user.Id,
+                user.Email,
+                user.FullName,
+                Roles = roles
+            });
         }
 
-        // 🧩 توليد الـ JWT Token
-        private string GenerateJwtToken(ApplicationUser user)
+        // =========================
+        // 🔐 JWT Token with Roles
+        // =========================
+        private async Task<string> GenerateJwtToken(ApplicationUser user)
         {
-            var claims = new[]
+            var roles = await _userManager.GetRolesAsync(user);
+
+            var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim("uid", user.Id)
+                new Claim("uid", user.Id),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
+            var key = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(_configuration["Jwt:Key"])
+            );
+
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(double.Parse(_configuration["Jwt:DurationInMinutes"])),
+                expires: DateTime.Now.AddMinutes(
+                    double.Parse(_configuration["Jwt:DurationInMinutes"])
+                ),
                 signingCredentials: creds
             );
 
@@ -89,7 +153,9 @@ namespace HotelApi.Controllers
         }
     }
 
+    // =========================
     // DTOs
+    // =========================
     public class RegisterDto
     {
         public string Email { get; set; }

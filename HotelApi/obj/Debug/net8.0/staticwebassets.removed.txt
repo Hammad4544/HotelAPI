@@ -1,2 +1,0 @@
-D:\Hammad\App_VS\HotelApi\HotelApi\wwwroot\Images\rooms\1007\37a15c2e-b043-4d43-8386-595c5fe8f12f.jpeg
-D:\Hammad\App_VS\HotelApi\HotelApi\wwwroot\Images\rooms\1008\6f1bf095-ff94-45f3-a026-0628526ba778.jpeg

@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
-using Models.Entities;
-using Models.DTOS.Room;
 using Models.DTOS.Booking;
+using Models.DTOS.Reviews;
+using Models.DTOS.Room;
+using Models.Entities;
 
 namespace HotelServices.Helpers
 {
@@ -27,6 +28,17 @@ namespace HotelServices.Helpers
             CreateMap<UpdateBookingDto, Booking>();
             CreateMap<Booking, CreateBookingDTO>();
             CreateMap<Booking, UpdateBookingDto>();
+
+            // Reviews Mappings
+            CreateMap<Review, AddReviewsDto>();
+            CreateMap<AddReviewsDto, Review>();
+            CreateMap<Review, ReviewResponseDto>()
+                .ForMember(dest=>dest.UserName,
+                opt=>opt.MapFrom(ser=>ser.User.UserName));
+            CreateMap<ReviewResponseDto, Review>();
+
+
+
         }
     }
 }

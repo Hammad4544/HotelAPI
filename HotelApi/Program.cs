@@ -85,7 +85,10 @@ namespace HotelApi
             builder.Services.AddScoped<IRoomRepository, RoomRepository>();  
             builder.Services.AddScoped<IRoomService, RoomService>();
             builder.Services.AddScoped<PaymentService>();
-      
+            builder.Services.AddScoped<IReviewRepository,ReviewRepository>();
+            builder.Services.AddScoped<IReviewService, ReviewService>();
+
+
 
 
 
@@ -118,6 +121,27 @@ namespace HotelApi
 
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var roleManager = scope.ServiceProvider
+                    .GetRequiredService<RoleManager<IdentityRole>>();
+
+                Task.Run(async () =>
+                {
+                    string[] roles = { "Admin", "User" };
+
+                    foreach (var role in roles)
+                    {
+                        if (!await roleManager.RoleExistsAsync(role))
+                        {
+                            await roleManager.CreateAsync(new IdentityRole(role));
+                        }
+                    }
+                }).GetAwaiter().GetResult();
+            }
+
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

@@ -373,7 +373,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HotelApi.Controllers.UserController",
+    "ContainingType": "HotelApi.Controllesrs.UserController",
     "Method": "AddUser",
     "RelativePath": "api/User/AddUser",
     "HttpMethod": "POST",
@@ -389,7 +389,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HotelApi.Controllers.UserController",
+    "ContainingType": "HotelApi.Controllesrs.UserController",
     "Method": "DeleteUser",
     "RelativePath": "api/User/DeleteUser/{id}",
     "HttpMethod": "DELETE",
@@ -405,7 +405,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HotelApi.Controllers.UserController",
+    "ContainingType": "HotelApi.Controllesrs.UserController",
     "Method": "GetAllUsers",
     "RelativePath": "api/User/GetAll",
     "HttpMethod": "GET",
@@ -415,7 +415,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HotelApi.Controllers.UserController",
+    "ContainingType": "HotelApi.Controllesrs.UserController",
     "Method": "GetUserById",
     "RelativePath": "api/User/GetUserById/{id}",
     "HttpMethod": "GET",
@@ -431,7 +431,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HotelApi.Controllers.UserController",
+    "ContainingType": "HotelApi.Controllesrs.UserController",
     "Method": "UpdateUser",
     "RelativePath": "api/User/UpdateUser/{id}",
     "HttpMethod": "PUT",

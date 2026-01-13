@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HotelApi.Controllers
+namespace HotelApi.Controllesrs
 {
     [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]

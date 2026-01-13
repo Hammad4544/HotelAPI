@@ -154,7 +154,7 @@ namespace HotelApi.Controllers
                     return BadRequest(ex.Message);
                 }
             }
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet("dashboard/bookings")]
         public async Task<IActionResult> GetDashboardBookings()
         {

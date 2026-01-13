@@ -54,6 +54,7 @@ namespace HotelServices.Implementation
           var us=  await _unitOfWork.Users.GetAllAsync();
             return us.Select(u => new UserResponseDto
             {
+                UserId=u.Id,
                 Email = u.Email,
                 FullName = u.FullName,
                 PhoneNumber = u.PhoneNumber,
@@ -72,6 +73,7 @@ namespace HotelServices.Implementation
             {
                 return new UserResponseDto
                 {
+                    UserId = u.Id,
                     Email = u.Email,
                     FullName = u.FullName,
                     PhoneNumber = u.PhoneNumber,

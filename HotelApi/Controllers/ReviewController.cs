@@ -17,7 +17,7 @@ namespace HotelApi.Controllers
             _reviewService = reviewService;
         }
 
-        [HttpGet]
+        [HttpGet("getAll")]
         public async Task<IActionResult> GetAll()
         {
             var reviews = await _reviewService.GetAllReviewsAsync();
@@ -25,7 +25,7 @@ namespace HotelApi.Controllers
         }
 
         [Authorize]
-        [HttpPost]
+        [HttpPost("CreateOrUpdate")]
         public async Task<IActionResult> CreateOrUpdate(
             [FromBody] AddReviewsDto reviewsDto)
         {

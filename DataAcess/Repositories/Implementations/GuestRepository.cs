@@ -25,6 +25,12 @@ namespace DataAcess.Repositories.Implementations
                  .Include(g => g.Bookings)
                  .FirstOrDefaultAsync();
         }
+
+        public async Task<ApplicationUser?> GetUserById(string userid)
+        {
+            return await _dbcontext.Users
+                .FirstOrDefaultAsync(u => u.Id == userid);
+        }
         //public async Task<>
 
     }

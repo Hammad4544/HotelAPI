@@ -3,36 +3,32 @@
   "WorkspaceRootPath": "D:\\Hammad\\App_VS\\HotelApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|solutionrelative:hotelapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelapi\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|solutionrelative:hotelapi\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|solutionrelative:hotelapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|d:\\hammad\\app_vs\\hotelapi\\models\\entities\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|solutionrelative:models\\entities\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EC0DB29B-7520-4291-8306-8B4C6B5E94E5}|HotelServices\\HotelServices.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelservices\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EC0DB29B-7520-4291-8306-8B4C6B5E94E5}|HotelServices\\HotelServices.csproj|solutionrelative:hotelservices\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EC0DB29B-7520-4291-8306-8B4C6B5E94E5}|HotelServices\\HotelServices.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelservices\\implementation\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC0DB29B-7520-4291-8306-8B4C6B5E94E5}|HotelServices\\HotelServices.csproj|solutionrelative:hotelservices\\implementation\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFECB352-B1A4-4AFE-B359-F888C6E3A645}|DataAcess\\DataAcess.csproj|d:\\hammad\\app_vs\\hotelapi\\dataacess\\repositories\\implementations\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFECB352-B1A4-4AFE-B359-F888C6E3A645}|DataAcess\\DataAcess.csproj|solutionrelative:dataacess\\repositories\\implementations\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EC0DB29B-7520-4291-8306-8B4C6B5E94E5}|HotelServices\\HotelServices.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelservices\\interfaces\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC0DB29B-7520-4291-8306-8B4C6B5E94E5}|HotelServices\\HotelServices.csproj|solutionrelative:hotelservices\\interfaces\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|d:\\hammad\\app_vs\\hotelapi\\models\\dtos\\reviews\\reviewresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|solutionrelative:models\\dtos\\reviews\\reviewresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|d:\\hammad\\app_vs\\hotelapi\\models\\dtos\\booking\\bookingdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01FA07D4-1481-4F95-93E7-01E03C17FA50}|Models\\Models.csproj|solutionrelative:models\\dtos\\booking\\bookingdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelapi\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4AAF83B2-22A5-4048-AD2E-671604FD05A8}|HotelApi\\HotelApi.csproj|solutionrelative:hotelapi\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FFECB352-B1A4-4AFE-B359-F888C6E3A645}|DataAcess\\DataAcess.csproj|d:\\hammad\\app_vs\\hotelapi\\dataacess\\repositories\\implementations\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFECB352-B1A4-4AFE-B359-F888C6E3A645}|DataAcess\\DataAcess.csproj|solutionrelative:dataacess\\repositories\\implementations\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EC0DB29B-7520-4291-8306-8B4C6B5E94E5}|HotelServices\\HotelServices.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelservices\\implementation\\reviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EC0DB29B-7520-4291-8306-8B4C6B5E94E5}|HotelServices\\HotelServices.csproj|solutionrelative:hotelservices\\implementation\\reviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EC0DB29B-7520-4291-8306-8B4C6B5E94E5}|HotelServices\\HotelServices.csproj|d:\\hammad\\app_vs\\hotelapi\\hotelservices\\interfaces\\ireviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EC0DB29B-7520-4291-8306-8B4C6B5E94E5}|HotelServices\\HotelServices.csproj|solutionrelative:hotelservices\\interfaces\\ireviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FFECB352-B1A4-4AFE-B359-F888C6E3A645}|DataAcess\\DataAcess.csproj|d:\\hammad\\app_vs\\hotelapi\\dataacess\\repositories\\interfaces\\ibookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFECB352-B1A4-4AFE-B359-F888C6E3A645}|DataAcess\\DataAcess.csproj|solutionrelative:dataacess\\repositories\\interfaces\\ibookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,109 +38,102 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Program.cs",
-              "RelativeDocumentMoniker": "HotelApi\\Program.cs",
-              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Program.cs*",
-              "RelativeToolTip": "HotelApi\\Program.cs*",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAiwIwAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T15:37:24.878Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "HotelApi\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "HotelApi\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKAAAAApAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\Models\\Entities\\Booking.cs",
+              "RelativeDocumentMoniker": "Models\\Entities\\Booking.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\Models\\Entities\\Booking.cs",
+              "RelativeToolTip": "Models\\Entities\\Booking.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBgAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-11T17:48:53.345Z",
+              "WhenOpened": "2026-01-13T16:09:48.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookingDashboardDto.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\Models\\DTOS\\Booking\\BookingDashboardDto.cs",
+              "RelativeDocumentMoniker": "Models\\DTOS\\Booking\\BookingDashboardDto.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\Models\\DTOS\\Booking\\BookingDashboardDto.cs",
+              "RelativeToolTip": "Models\\DTOS\\Booking\\BookingDashboardDto.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T16:09:06.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IBookingService.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelServices\\Interfaces\\IBookingService.cs",
+              "RelativeDocumentMoniker": "HotelServices\\Interfaces\\IBookingService.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelServices\\Interfaces\\IBookingService.cs",
+              "RelativeToolTip": "HotelServices\\Interfaces\\IBookingService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAzwBYAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T16:08:33.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BookingRepository.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\DataAcess\\Repositories\\Implementations\\BookingRepository.cs",
+              "RelativeDocumentMoniker": "DataAcess\\Repositories\\Implementations\\BookingRepository.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\DataAcess\\Repositories\\Implementations\\BookingRepository.cs",
+              "RelativeToolTip": "DataAcess\\Repositories\\Implementations\\BookingRepository.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwC8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T16:06:59.546Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelServices\\Helpers\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "HotelServices\\Helpers\\MappingProfile.cs",
-              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelServices\\Helpers\\MappingProfile.cs",
-              "RelativeToolTip": "HotelServices\\Helpers\\MappingProfile.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAArAAAAAAAAAA==",
+              "Title": "BookingService.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelServices\\Implementation\\BookingService.cs",
+              "RelativeDocumentMoniker": "HotelServices\\Implementation\\BookingService.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelServices\\Implementation\\BookingService.cs",
+              "RelativeToolTip": "HotelServices\\Implementation\\BookingService.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAuwHQAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-11T17:45:04.973Z"
+              "WhenOpened": "2026-01-13T15:57:02.032Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ReviewRepository.cs",
-              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\DataAcess\\Repositories\\Implementations\\ReviewRepository.cs",
-              "RelativeDocumentMoniker": "DataAcess\\Repositories\\Implementations\\ReviewRepository.cs",
-              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\DataAcess\\Repositories\\Implementations\\ReviewRepository.cs",
-              "RelativeToolTip": "DataAcess\\Repositories\\Implementations\\ReviewRepository.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAcwDkAAABPAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "HotelApi\\Controllers\\BookingController.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Controllers\\BookingController.cs*",
+              "RelativeToolTip": "HotelApi\\Controllers\\BookingController.cs*",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAswJwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-11T17:42:43.444Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ReviewResponseDto.cs",
-              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\Models\\DTOS\\Reviews\\ReviewResponseDto.cs",
-              "RelativeDocumentMoniker": "Models\\DTOS\\Reviews\\ReviewResponseDto.cs",
-              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\Models\\DTOS\\Reviews\\ReviewResponseDto.cs",
-              "RelativeToolTip": "Models\\DTOS\\Reviews\\ReviewResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-11T17:35:29.863Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ReviewController.cs",
-              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Controllers\\ReviewController.cs",
-              "RelativeDocumentMoniker": "HotelApi\\Controllers\\ReviewController.cs",
-              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelApi\\Controllers\\ReviewController.cs",
-              "RelativeToolTip": "HotelApi\\Controllers\\ReviewController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAYwCIAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-11T17:14:13.675Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IReviewService.cs",
-              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelServices\\Interfaces\\IReviewService.cs",
-              "RelativeDocumentMoniker": "HotelServices\\Interfaces\\IReviewService.cs",
-              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelServices\\Interfaces\\IReviewService.cs",
-              "RelativeToolTip": "HotelServices\\Interfaces\\IReviewService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-11T16:55:19.063Z"
+              "WhenOpened": "2026-01-13T15:56:56.206Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "ReviewService.cs",
-              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\HotelServices\\Implementation\\ReviewService.cs",
-              "RelativeDocumentMoniker": "HotelServices\\Implementation\\ReviewService.cs",
-              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\HotelServices\\Implementation\\ReviewService.cs",
-              "RelativeToolTip": "HotelServices\\Implementation\\ReviewService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwDYAAAAuAAAAAAAAAA==",
+              "Title": "IBookingRepository.cs",
+              "DocumentMoniker": "D:\\Hammad\\App_VS\\HotelApi\\DataAcess\\Repositories\\Interfaces\\IBookingRepository.cs",
+              "RelativeDocumentMoniker": "DataAcess\\Repositories\\Interfaces\\IBookingRepository.cs",
+              "ToolTip": "D:\\Hammad\\App_VS\\HotelApi\\DataAcess\\Repositories\\Interfaces\\IBookingRepository.cs",
+              "RelativeToolTip": "DataAcess\\Repositories\\Interfaces\\IBookingRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-11T16:48:45.933Z"
+              "WhenOpened": "2026-01-13T16:06:17.877Z",
+              "EditorCaption": ""
             }
           ]
         }

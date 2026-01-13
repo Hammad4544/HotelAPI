@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Models.Entities
 {
+    public enum BookingStatus
+    {
+        Pending,
+        Confirmed,
+        Cancelled
+        
+    }
     public class Booking
     {
         public int BookingId { get; set; }
@@ -15,6 +22,7 @@ namespace Models.Entities
         public Room? Room { get; set; }
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
-      
+        public BookingStatus Status { get; set; } = BookingStatus.Pending;
+
     }
 }

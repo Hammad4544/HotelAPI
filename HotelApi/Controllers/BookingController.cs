@@ -140,6 +140,27 @@ namespace HotelApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+            [Authorize(Roles = "Admin")]
+            [HttpGet("dashboard/stats")]
+            public async Task<IActionResult> GetDashboardStats()
+            {
+                try
+                {
+                    var stats = await _bookingService.GetStats();
+                    return Ok(stats);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+            }
+        //[Authorize(Roles = "Admin")]
+        [HttpGet("dashboard/bookings")]
+        public async Task<IActionResult> GetDashboardBookings()
+        {
+            var data = await _bookingService.GetLatestBookings();
+            return Ok(data);
+        }
 
     }
 }

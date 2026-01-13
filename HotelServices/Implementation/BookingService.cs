@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
+using DataAcess;
 using DataAcess.Repositories.Interfaces;
 using HotelServices.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Models.DTOS.Booking;
+using Models.DTOS.DashboardStats;
 using Models.Entities;
 
 namespace HotelServices.Implementation
@@ -10,11 +13,13 @@ namespace HotelServices.Implementation
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly HotelDbContext _dbcontext;
 
-        public BookingService(IUnitOfWork unitOfWork, IMapper mapper)
+        public BookingService(IUnitOfWork unitOfWork, IMapper mapper , HotelDbContext dbContext)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _dbcontext= dbContext;
         }
 
         public async Task<BookingResponseDto> CreateBookingAsync(CreateBookingDTO dto, string userId)
@@ -94,6 +99,35 @@ namespace HotelServices.Implementation
         {
             var bookings = await _unitOfWork.Bookings.GetBookingsByGuestIdAsync(guestId);
             return _mapper.Map<IEnumerable<BookingResponseDto>>(bookings);
+        }
+
+        public async Task<DashboardStatsDto> GetStats()
+        {
+              return new DashboardStatsDto
+            {
+                Rooms = await _dbcontext.Rooms.CountAsync(),
+                TotalBookings = await _dbcontext.Bookings.CountAsync(),
+                Users = await _dbcontext.Users.CountAsync(),
+                Revenue = await _dbcontext.Bookings.Include(b => b.Room).SumAsync(b => EF.Functions.DateDiffDay(b.CheckInDate, b.CheckOutDate) * b.Room.PricePerNight)
+
+
+            };
+        }
+
+        public async Task<IEnumerable<BookingDashboardDto>> GetLatestBookings()
+        {
+           var bookings = await  _unitOfWork.Bookings.GetLatestBookings();
+            return bookings.Select(b=> new BookingDashboardDto
+            {
+                GuestName = b.User.FullName,
+                Room = b.Room.Type,
+                CheckIn = b.CheckInDate,
+                CheckOut = b.CheckOutDate,
+                Status= b.Status.ToString()
+
+
+
+            }).ToList();
         }
     }
 }

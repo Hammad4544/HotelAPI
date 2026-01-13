@@ -28,7 +28,7 @@ namespace HotelApi.Controllers
         }
 
         // =========================
-        // 🟢 Register => User
+        //  Register => User
         // =========================
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromForm] RegisterDto model)
@@ -52,7 +52,7 @@ namespace HotelApi.Controllers
         }
 
         // =========================
-        // 🔴 Create Admin (مرة واحدة)
+        //  Create Admin (مرة واحدة)
         // =========================
         [HttpPost("create-admin")]
         public async Task<IActionResult> CreateAdmin([FromForm] RegisterDto model)
@@ -78,7 +78,7 @@ namespace HotelApi.Controllers
         }
 
         // =========================
-        // 🔵 Login
+        //  Login
         // =========================
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromForm] LoginDto model)
@@ -93,7 +93,7 @@ namespace HotelApi.Controllers
         }
 
         // =========================
-        // 👤 Current User
+        //  Current User
         // =========================
         [Authorize]
         [HttpGet("me")]
@@ -115,7 +115,7 @@ namespace HotelApi.Controllers
         }
 
         // =========================
-        // 🔐 JWT Token with Roles
+        //  JWT Token with Roles
         // =========================
         private async Task<string> GenerateJwtToken(ApplicationUser user)
         {

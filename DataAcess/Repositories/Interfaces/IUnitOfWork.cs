@@ -13,7 +13,7 @@ namespace DataAcess.Repositories.Interfaces
         IGuestRepository Users { get; }
         IBookingRepository Bookings { get; }
          IRoomImageRepository RoomImages { get; }
-
+ 
         Task CompleteAsync();
     }
 }

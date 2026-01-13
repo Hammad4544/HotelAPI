@@ -39,5 +39,13 @@ namespace DataAcess.Repositories.Implementations
                 .Where(b => b.UserId == guestId)
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<Booking>> GetLatestBookings()
+        {
+            return await _dbcontext.Bookings.Include(r=>r.Room).Include(u=>u.User)
+                .OrderByDescending(b => b.CheckInDate)
+                .Take(5)
+                .ToListAsync();
+        }
     }
 }

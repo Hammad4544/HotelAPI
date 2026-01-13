@@ -1,4 +1,5 @@
 ﻿using Models.DTOS.Booking;
+using Models.DTOS.DashboardStats;
 using Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -17,5 +18,8 @@ namespace HotelServices.Interfaces
         Task<bool> DeleteBookingAsync(int id , string userId);
         Task<IEnumerable<BookingResponseDto>> GetBookingsByGuestId(string guestId);
         Task<IEnumerable<BookingResponseDto>> GetActiveBookings();
+        Task<DashboardStatsDto> GetStats();
+
+        Task<IEnumerable<BookingDashboardDto>> GetLatestBookings();
     }
 }

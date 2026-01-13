@@ -110,6 +110,26 @@
   },
   {
     "ContainingType": "HotelApi.Controllers.BookingController",
+    "Method": "GetDashboardBookings",
+    "RelativePath": "api/Booking/dashboard/bookings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.BookingController",
+    "Method": "GetDashboardStats",
+    "RelativePath": "api/Booking/dashboard/stats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.BookingController",
     "Method": "DeleteBooking",
     "RelativePath": "api/Booking/DeleteBooking/{id}",
     "HttpMethod": "DELETE",
@@ -199,18 +219,8 @@
   },
   {
     "ContainingType": "HotelApi.Controllers.ReviewController",
-    "Method": "GetAll",
-    "RelativePath": "api/Review",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HotelApi.Controllers.ReviewController",
     "Method": "CreateOrUpdate",
-    "RelativePath": "api/Review",
+    "RelativePath": "api/Review/CreateOrUpdate",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -221,6 +231,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.ReviewController",
+    "Method": "GetAll",
+    "RelativePath": "api/Review/getAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -348,6 +368,85 @@
         "Name": "Images",
         "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.UserController",
+    "Method": "AddUser",
+    "RelativePath": "api/User/AddUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "Models.DTOS.User.AddUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/User/DeleteUser/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.UserController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/User/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.UserController",
+    "Method": "GetUserById",
+    "RelativePath": "api/User/GetUserById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HotelApi.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/User/UpdateUser/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "user",
+        "Type": "Models.DTOS.User.UpdateUserDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

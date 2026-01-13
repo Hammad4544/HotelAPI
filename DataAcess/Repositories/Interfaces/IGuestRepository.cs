@@ -10,6 +10,7 @@ namespace DataAcess.Repositories.Interfaces
     public interface IGuestRepository: IGenericRepository<ApplicationUser>
     {
         Task<ApplicationUser?> GetGuestWithBookingsAsync(string UserID);
+        Task<ApplicationUser?> GetUserById(string userid);
 
     }
 }

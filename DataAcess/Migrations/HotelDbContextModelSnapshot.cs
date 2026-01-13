@@ -243,6 +243,9 @@ namespace DataAcess.Migrations
                     b.Property<int>("RoomId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");

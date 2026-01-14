@@ -119,6 +119,8 @@ namespace HotelServices.Implementation
            var bookings = await  _unitOfWork.Bookings.GetLatestBookings();
             return bookings.Select(b=> new BookingDashboardDto
             {
+                BookingId = b.BookingId,
+                UserId = b.UserId,
                 GuestName = b.User.FullName,
                 Room = b.Room.Type,
                 CheckIn = b.CheckInDate,
@@ -128,6 +130,69 @@ namespace HotelServices.Implementation
 
 
             }).ToList();
+        }
+
+        public async Task<IEnumerable<BookingDashboardDto>> GetAllBookingAsync()
+        {
+            var bookings = await _unitOfWork.Bookings.GetAllAsync();
+            return bookings.Select(b => new BookingDashboardDto
+            {
+                BookingId = b.BookingId,
+                UserId =b.User.Id,
+                GuestName = b.User.FullName,
+                Room = b.Room.Type,
+                CheckIn = b.CheckInDate,
+                CheckOut = b.CheckOutDate,
+                Status = b.Status.ToString()
+            }).ToList();
+
+
+        }
+
+        public async Task<bool> UpdateStatusForAdmin(int id, BookingStatus status)
+        {
+            var booking = await _unitOfWork.Bookings.GetByIdAsync(id);
+            if (booking == null)
+                return false;
+            else
+            {
+                booking.Status = status;
+               await _unitOfWork.CompleteAsync();
+                return true;
+            }
+
+        }
+
+        public async Task<bool> UpdateBookingForAdminAsync(int id, UpdateBookingDto updatedBooking)
+        {
+            var existingBooking = await _unitOfWork.Bookings.GetByIdAsync(id);
+            if (existingBooking == null)
+                return false;
+            else
+            {
+                existingBooking.CheckOutDate = updatedBooking.CheckOutDate;
+                existingBooking.CheckInDate = updatedBooking.CheckInDate;
+                existingBooking.RoomId = updatedBooking.RoomId;
+                await _unitOfWork.CompleteAsync();
+                return true;
+
+
+            }
+
+
+        }
+
+        public async Task<bool> DeleteBookingForAdminAsync(int id)
+        {
+            var existingBooking = await _unitOfWork.Bookings.GetByIdAsync(id);
+            if (existingBooking == null)
+                return false;
+            else
+            {
+                _unitOfWork.Bookings.Delete(existingBooking);
+                await _unitOfWork.CompleteAsync();
+                return true;
+            }
         }
     }
 }

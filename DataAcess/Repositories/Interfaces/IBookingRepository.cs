@@ -13,6 +13,9 @@ namespace DataAcess.Repositories.Interfaces
         Task<IEnumerable<Booking>> GetActiveBookingsAsync();
         Task<IEnumerable<Booking>> GetBookingsByRoomIdAsyn(int roomId);
         Task<IEnumerable<Booking>> GetLatestBookings();
+        Task<IEnumerable<Booking>> GetAllAsync();
+
+
 
     }
 }

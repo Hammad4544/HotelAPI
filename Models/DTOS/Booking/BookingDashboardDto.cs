@@ -8,6 +8,8 @@ namespace Models.DTOS.Booking
 {
     public class BookingDashboardDto
     {
+        public int BookingId { get; set; }
+        public string UserId { get; set; }
         public string GuestName { get; set; }
         public string Room { get; set; }
         public DateTime CheckIn { get; set; }

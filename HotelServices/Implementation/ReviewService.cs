@@ -61,6 +61,12 @@ namespace HotelServices.Implementation
             var reviews = await _reviewRepo.GetAllAsync();
             return _mapper.Map<IEnumerable<ReviewResponseDto>>(reviews);
         }
+
+        public async Task<ReviewResponseDto> GetReviewById(int id)
+        {
+            var review = await _reviewRepo.GetByIdAsync(id);
+            return _mapper.Map<ReviewResponseDto>(review);
+        }
     }
 
 }

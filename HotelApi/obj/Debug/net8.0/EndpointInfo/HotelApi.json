@@ -152,7 +152,7 @@
         }
       }
     },
-    "/api/Booking/GetAll": {
+    "/api/Booking/GetAllForUser": {
       "get": {
         "tags": [
           "Booking"
@@ -164,7 +164,7 @@
         }
       }
     },
-    "/api/Booking/GetActiveBooking": {
+    "/api/Booking/GetActiveBookingForUser": {
       "get": {
         "tags": [
           "Booking"
@@ -176,7 +176,7 @@
         }
       }
     },
-    "/api/Booking/GetBookingById/{id}": {
+    "/api/Booking/GetBookingByIdForUser/{id}": {
       "get": {
         "tags": [
           "Booking"
@@ -199,7 +199,7 @@
         }
       }
     },
-    "/api/Booking/CreateBooking": {
+    "/api/Booking/CreateBookingForUser": {
       "post": {
         "tags": [
           "Booking"
@@ -230,7 +230,7 @@
         }
       }
     },
-    "/api/Booking/UpdateBooking/{id}": {
+    "/api/Booking/UpdateBookingForUser/{id}": {
       "put": {
         "tags": [
           "Booking"
@@ -272,7 +272,7 @@
         }
       }
     },
-    "/api/Booking/DeleteBooking/{id}": {
+    "/api/Booking/DeleteBookingForUser/{id}": {
       "delete": {
         "tags": [
           "Booking"
@@ -307,10 +307,75 @@
         }
       }
     },
-    "/api/Booking/dashboard/bookings": {
+    "/api/Booking/GetAllBookingForAdmin/bookings": {
       "get": {
         "tags": [
           "Booking"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Booking/UpdateBookingStatusForAdmin/{id}": {
+      "put": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingStatus"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingStatus"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingStatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Booking/DeleteById/{id}": {
+      "delete": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -386,6 +451,52 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Review/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "Review"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Review/getById/{id}": {
+      "get": {
+        "tags": [
+          "Review"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -760,6 +871,14 @@
           }
         },
         "additionalProperties": false
+      },
+      "BookingStatus": {
+        "enum": [
+          "Pending",
+          "Confirmed",
+          "Cancelled"
+        ],
+        "type": "string"
       },
       "CreateBookingDTO": {
         "type": "object",

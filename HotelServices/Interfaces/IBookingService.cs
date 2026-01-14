@@ -18,8 +18,14 @@ namespace HotelServices.Interfaces
         Task<bool> DeleteBookingAsync(int id , string userId);
         Task<IEnumerable<BookingResponseDto>> GetBookingsByGuestId(string guestId);
         Task<IEnumerable<BookingResponseDto>> GetActiveBookings();
+
+        //For Admin
         Task<DashboardStatsDto> GetStats();
+        Task<IEnumerable<BookingDashboardDto>>GetAllBookingAsync();
 
         Task<IEnumerable<BookingDashboardDto>> GetLatestBookings();
+        Task<bool> UpdateStatusForAdmin(int id, BookingStatus status);
+        Task<bool> UpdateBookingForAdminAsync(int id, UpdateBookingDto updatedBooking);
+        Task<bool> DeleteBookingForAdminAsync(int id);
     }
 }

@@ -12,5 +12,8 @@ namespace HotelServices.Interfaces
         public Task<IEnumerable<ReviewResponseDto>> GetAllReviewsAsync();
         public Task CreateReview(string userid,AddReviewsDto reviewDto);
         public Task<bool> DeleteReviewAsync(int id);
+        public Task<ReviewResponseDto> GetReviewById(int id);
+        
+         
     }
 }

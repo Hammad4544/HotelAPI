@@ -13,6 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Models.Entities;
 using System.Text;
+using System.Text.Json.Serialization;
+
 namespace HotelApi
 {
 
@@ -115,6 +117,13 @@ namespace HotelApi
                             .AllowAnyHeader();
                     });
             });
+            builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(
+            new JsonStringEnumConverter());
+    });
+
 
 
 

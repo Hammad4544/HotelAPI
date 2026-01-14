@@ -17,7 +17,7 @@ namespace HotelApi.Controllers
             _bookingService = bookingService;
         }
         // Controller actions would go here
-        [HttpGet("GetAll")]
+        [HttpGet("GetAllForUser")]
         public async Task<IActionResult> GetAllBookings()
         {
             try
@@ -35,17 +35,17 @@ namespace HotelApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpGet("GetActiveBooking")]
+        [HttpGet("GetActiveBookingForUser")]
         public async Task<IActionResult> GetActiveBooking()
         {
             var bookings = await _bookingService.GetActiveBookings();
-            if(bookings == null)
+            if (bookings == null)
             {
                 return NotFound();
             }
             return Ok(bookings);
         }
-        [HttpGet("GetBookingById/{id}")]
+        [HttpGet("GetBookingByIdForUser/{id}")]
         public async Task<IActionResult> GetBookingById(int id)
         {
             try
@@ -67,7 +67,7 @@ namespace HotelApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost("CreateBooking")]
+        [HttpPost("CreateBookingForUser")]
         public async Task<IActionResult> CreateBooking([FromBody] CreateBookingDTO booking)
         {
             try
@@ -77,12 +77,12 @@ namespace HotelApi.Controllers
                 {
                     return Unauthorized("User Not Found");
                 }
-                if(booking == null)
+                if (booking == null)
                 {
                     return BadRequest("Invalid booking data");
                 }
-                
-                if(booking.CheckInDate < DateTime.Now.Date)
+
+                if (booking.CheckInDate < DateTime.Now.Date)
                 {
                     return BadRequest("Check-in date cannot be in the past.");
                 }
@@ -98,27 +98,30 @@ namespace HotelApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPut("UpdateBooking/{id}")]
+        [HttpPut("UpdateBookingForUser/{id}")]
         public async Task<IActionResult> UpdateBooking(int id, [FromBody] UpdateBookingDto updatedBooking)
         {
-            try { 
-            
+            try
+            {
+
                 var userid = User.FindFirst("uid")?.Value;
-                if(string.IsNullOrEmpty(userid))
+                if (string.IsNullOrEmpty(userid))
                 {
                     return Unauthorized("User Not Found");
                 }
                 var result = await _bookingService.UpdateBookingAsync(id, updatedBooking, userid);
-                if(!result)
+                if (!result)
                 {
                     return NotFound("Booking Not Found");
                 }
                 return Ok("Booking Updated Successfully");
-            }catch(Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 return BadRequest(ex.Message);
             }
         }
-        [HttpDelete("DeleteBooking/{id}")]
+        [HttpDelete("DeleteBookingForUser/{id}")]
         public async Task<IActionResult> DeleteBooking(int id)
         {
             try
@@ -140,28 +143,64 @@ namespace HotelApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-            [Authorize(Roles = "Admin")]
-            [HttpGet("dashboard/stats")]
-            public async Task<IActionResult> GetDashboardStats()
-            {
-                try
-                {
-                    var stats = await _bookingService.GetStats();
-                    return Ok(stats);
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
-                }
-            }
         [Authorize(Roles = "Admin")]
-        [HttpGet("dashboard/bookings")]
+        [HttpGet("dashboard/stats")]
+        public async Task<IActionResult> GetDashboardStats()
+        {
+            try
+            {
+                var stats = await _bookingService.GetStats();
+                return Ok(stats);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpGet("GetAllBookingForAdmin/bookings")]
         public async Task<IActionResult> GetDashboardBookings()
         {
             var data = await _bookingService.GetLatestBookings();
             return Ok(data);
         }
-
+      
+        [Authorize(Roles = "Admin")]
+        [HttpPut("UpdateBookingStatusForAdmin/{id}")]
+        public async Task<IActionResult> UpdateBookingStatusForAdmin(int id, [FromBody] BookingStatus status)
+        {
+            try
+            {
+                var result = await _bookingService.UpdateStatusForAdmin(id, status);
+                if (!result)
+                {
+                    return NotFound("Booking Not Found");
+                }
+                return Ok("Booking Status Updated Successfully");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("DeleteById/{id}")]
+        public async Task<IActionResult> DeleteBookingForAdmin(int id)
+        {
+            try
+            {
+                var result = await _bookingService.DeleteBookingForAdminAsync(id);
+                if (!result)
+                {
+                    return NotFound("Booking Not Found");
+                }
+                return Ok("Booking Deleted Successfully");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
 

@@ -8,9 +8,9 @@ namespace Models.Entities
 {
     public enum BookingStatus
     {
-        Pending,
-        Confirmed,
-        Cancelled
+        Pending,//0
+        Confirmed,//1
+        Cancelled//2
         
     }
     public class Booking

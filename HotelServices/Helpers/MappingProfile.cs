@@ -23,6 +23,7 @@ namespace HotelServices.Helpers
             CreateMap<Booking, BookingResponseDto>()
                 .ForMember(dest => dest.Room, opt => opt.MapFrom(src => src.Room)) // ربط الغرفة داخل الحجز
                 .ReverseMap();
+            CreateMap<Booking, BookingResponseByRoomIDDto>();
 
             CreateMap<CreateBookingDTO, Booking>();
             CreateMap<UpdateBookingDto, Booking>();

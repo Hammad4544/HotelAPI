@@ -194,5 +194,11 @@ namespace HotelServices.Implementation
                 return true;
             }
         }
+
+        public async Task<IEnumerable<BookingResponseByRoomIDDto?>> GetBookingByRoomIdAsync(int id)
+        {
+          var b= await _unitOfWork.Bookings.GetBookingsByRoomIdAsyn(id);
+            return  _mapper.Map<IEnumerable<BookingResponseByRoomIDDto?>>(b);
+        }
     }
 }

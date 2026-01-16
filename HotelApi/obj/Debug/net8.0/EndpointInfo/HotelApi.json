@@ -152,7 +152,7 @@
         }
       }
     },
-    "/api/Booking/GetAllForUser": {
+    "/api/Booking": {
       "get": {
         "tags": [
           "Booking"
@@ -162,44 +162,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Booking/GetActiveBookingForUser": {
-      "get": {
-        "tags": [
-          "Booking"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Booking/GetBookingByIdForUser/{id}": {
-      "get": {
-        "tags": [
-          "Booking"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Booking/CreateBookingForUser": {
+      },
       "post": {
         "tags": [
           "Booking"
@@ -230,7 +193,28 @@
         }
       }
     },
-    "/api/Booking/UpdateBookingForUser/{id}": {
+    "/api/Booking/{id}": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
       "put": {
         "tags": [
           "Booking"
@@ -270,9 +254,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Booking/DeleteBookingForUser/{id}": {
+      },
       "delete": {
         "tags": [
           "Booking"
@@ -295,7 +277,30 @@
         }
       }
     },
-    "/api/Booking/dashboard/stats": {
+    "/api/Booking/room/{id}": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Booking/admin/stats": {
       "get": {
         "tags": [
           "Booking"
@@ -307,7 +312,7 @@
         }
       }
     },
-    "/api/Booking/GetAllBookingForAdmin/bookings": {
+    "/api/Booking/admin/all": {
       "get": {
         "tags": [
           "Booking"
@@ -319,7 +324,7 @@
         }
       }
     },
-    "/api/Booking/UpdateBookingStatusForAdmin/{id}": {
+    "/api/Booking/admin/status/{id}": {
       "put": {
         "tags": [
           "Booking"
@@ -354,29 +359,6 @@
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Booking/DeleteById/{id}": {
-      "delete": {
-        "tags": [
-          "Booking"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"

@@ -93,15 +93,25 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "CreateBooking",
-    "RelativePath": "api/Booking/CreateBookingForUser",
+    "ContainingType": "BookingController",
+    "Method": "GetAll",
+    "RelativePath": "api/Booking",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingController",
+    "Method": "Create",
+    "RelativePath": "api/Booking",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "booking",
+        "Name": "bookingDto",
         "Type": "Models.DTOS.Booking.CreateBookingDTO",
         "IsRequired": true
       }
@@ -109,81 +119,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "GetDashboardStats",
-    "RelativePath": "api/Booking/dashboard/stats",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "DeleteBooking",
-    "RelativePath": "api/Booking/DeleteBookingForUser/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "DeleteBookingForAdmin",
-    "RelativePath": "api/Booking/DeleteById/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "GetActiveBooking",
-    "RelativePath": "api/Booking/GetActiveBookingForUser",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "GetDashboardBookings",
-    "RelativePath": "api/Booking/GetAllBookingForAdmin/bookings",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "GetAllBookings",
-    "RelativePath": "api/Booking/GetAllForUser",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "GetBookingById",
-    "RelativePath": "api/Booking/GetBookingByIdForUser/{id}",
+    "ContainingType": "BookingController",
+    "Method": "GetById",
+    "RelativePath": "api/Booking/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -197,9 +135,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "UpdateBooking",
-    "RelativePath": "api/Booking/UpdateBookingForUser/{id}",
+    "ContainingType": "BookingController",
+    "Method": "Update",
+    "RelativePath": "api/Booking/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -218,9 +156,45 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "HotelApi.Controllers.BookingController",
-    "Method": "UpdateBookingStatusForAdmin",
-    "RelativePath": "api/Booking/UpdateBookingStatusForAdmin/{id}",
+    "ContainingType": "BookingController",
+    "Method": "Delete",
+    "RelativePath": "api/Booking/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingController",
+    "Method": "GetAdminDashboard",
+    "RelativePath": "api/Booking/admin/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingController",
+    "Method": "GetStats",
+    "RelativePath": "api/Booking/admin/stats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/Booking/admin/status/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -233,6 +207,22 @@
       {
         "Name": "status",
         "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingController",
+    "Method": "GetByRoomId",
+    "RelativePath": "api/Booking/room/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

@@ -72,7 +72,7 @@ public class BookingController : ControllerBase
     public async Task<IActionResult> GetStats() => Ok(await _bookingService.GetStats());
 
     [Authorize(Roles = "Admin")]
-    [HttpGet("admin/all")]
+    [HttpGet("admin/AllLatestBooking")]
     public async Task<IActionResult> GetAdminDashboard() => Ok(await _bookingService.GetLatestBookings());
 
     [Authorize(Roles = "Admin")]

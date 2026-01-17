@@ -49,7 +49,7 @@ namespace DataAcess.Repositories.Implementations
         }
          public async Task<IEnumerable<Booking>> GetAllAsync()
         {
-            return await _dbcontext.Bookings.Include(r => r.Room).Include(u => u.User)
+            return await _dbcontext.Bookings.Include(r => r.Room).ThenInclude(i=>i.Images).Include(u => u.User)
                 .ToListAsync();
         }
     }

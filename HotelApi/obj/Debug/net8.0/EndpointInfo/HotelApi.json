@@ -312,7 +312,7 @@
         }
       }
     },
-    "/api/Booking/admin/all": {
+    "/api/Booking/admin/AllLatestBooking": {
       "get": {
         "tags": [
           "Booking"

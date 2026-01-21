@@ -173,6 +173,16 @@
   },
   {
     "ContainingType": "BookingController",
+    "Method": "GetAllBookingsForAdmin",
+    "RelativePath": "api/Booking/admin/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingController",
     "Method": "GetAdminDashboard",
     "RelativePath": "api/Booking/admin/AllLatestBooking",
     "HttpMethod": "GET",

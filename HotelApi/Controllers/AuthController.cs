@@ -143,9 +143,7 @@ namespace HotelApi.Controllers
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(
-                    double.Parse(_configuration["Jwt:DurationInMinutes"])
-                ),
+                expires: DateTime.Now.AddYears(1),
                 signingCredentials: creds
             );
 

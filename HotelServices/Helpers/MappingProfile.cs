@@ -13,7 +13,7 @@ namespace HotelServices.Helpers
             // 🟩 Room Mappings
             CreateMap<Room, RoomResponseDto>()
                 .ForMember(dest=>dest.Images,opt=> opt.MapFrom(ser=>ser.Images.Select(i=>i.ImageUrl)))
-                .ReverseMap();
+                ;
             CreateMap<CreateRoomDto, Room>().ForMember(dest => dest.Images, opt => opt.Ignore()); ;
             CreateMap<UpdateRoomDto, Room>().ForMember(dest => dest.Images, opt => opt.Ignore()); ;
             CreateMap<Room, CreateRoomDto>();
@@ -22,6 +22,7 @@ namespace HotelServices.Helpers
             // 🟦 Booking Mappings
             CreateMap<Booking, BookingResponseDto>()
                 .ForMember(dest => dest.Room, opt => opt.MapFrom(src => src.Room)) // ربط الغرفة داخل الحجز
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
                 .ReverseMap();
             CreateMap<Booking, BookingResponseByRoomIDDto>();
 

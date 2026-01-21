@@ -45,6 +45,7 @@ namespace HotelServices.Implementation
             else
             {
                 _unitOfWork.Users.Delete(u);
+               await _unitOfWork.CompleteAsync();
                 return true;
             }
         }

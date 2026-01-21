@@ -143,8 +143,9 @@ namespace HotelServices.Implementation
                 Room = b.Room.Type,
                 CheckIn = b.CheckInDate,
                 CheckOut = b.CheckOutDate,
+                RoomNumber=b.Room.Number,
                 Status = b.Status.ToString()
-            }).ToList();
+            }).OrderByDescending(b=>b.BookingId).ToList();
 
 
         }

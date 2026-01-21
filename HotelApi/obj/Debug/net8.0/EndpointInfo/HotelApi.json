@@ -300,6 +300,18 @@
         }
       }
     },
+    "/api/Booking/admin/all": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Booking/admin/stats": {
       "get": {
         "tags": [

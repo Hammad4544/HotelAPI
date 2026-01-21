@@ -15,5 +15,6 @@ namespace Models.DTOS.Booking
         public RoomResponseDto Room { get; set; } // علشان نعرض بيانات الغرفة المرتبطة بالحجز
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
+        public string Status { get; set; }
     }
 }

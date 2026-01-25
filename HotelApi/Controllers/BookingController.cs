@@ -57,6 +57,21 @@ public class BookingController : ControllerBase
         return result ? Ok("Booking Deleted Successfully") : NotFound("Booking Not Found");
     }
 
+
+    [HttpDelete("AllForUser")]
+    public async Task<IActionResult> DeleteAllForUser()
+    {
+        var result = await _bookingService.DeleteAllBookingsForUserAsync(UserId);
+
+        if (!result)
+        {
+            return NotFound(new { message = "No bookings found for this user." });
+        }
+
+        
+        return Ok(new { message = "All bookings deleted successfully." });
+    }
+
     //  Room Actions 
 
     [HttpGet("room/{id}")]

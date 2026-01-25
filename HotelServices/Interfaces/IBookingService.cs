@@ -16,6 +16,7 @@ namespace HotelServices.Interfaces
         Task<BookingResponseDto> CreateBookingAsync(CreateBookingDTO Dto, string userId);
         Task<bool> UpdateBookingAsync(int id, UpdateBookingDto updatedBooking, string userId);
         Task<bool> DeleteBookingAsync(int id , string userId);
+        Task<bool> DeleteAllBookingsForUserAsync(string userId);
         Task<IEnumerable<BookingResponseDto>> GetBookingsByGuestId(string guestId);
         Task<IEnumerable<BookingResponseDto>> GetActiveBookings();
         // Fro Room

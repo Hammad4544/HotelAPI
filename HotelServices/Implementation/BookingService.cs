@@ -235,5 +235,21 @@ namespace HotelServices.Implementation
                 .Select(b => _mapper.Map<BookingResponseDto>(b))
                 .FirstOrDefaultAsync();
         }
+
+        public async Task<bool> DeleteAllBookingsForUserAsync( string userId)
+        {
+            var bookings = await _unitOfWork.Bookings.GetAllAsync();
+            var userBookings = bookings.Where(b => b.UserId == userId).ToList();
+            if (!userBookings.Any())
+                return false;
+            foreach (var booking in userBookings)
+            {
+                _unitOfWork.Bookings.Delete(booking);
+            }
+            await _unitOfWork.CompleteAsync();
+            return true;
+
+
+        }
     }
 }

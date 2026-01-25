@@ -409,6 +409,18 @@
         }
       }
     },
+    "/api/Payment/webhook": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Review/getAll": {
       "get": {
         "tags": [
@@ -895,6 +907,10 @@
       "PaymentRequest": {
         "type": "object",
         "properties": {
+          "bookingId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "hotelName": {
             "type": "string",
             "nullable": true

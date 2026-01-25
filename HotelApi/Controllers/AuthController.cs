@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using HotelServices.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -16,15 +17,17 @@ namespace HotelApi.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
+        private readonly IEmailService _emailService;
 
         public AuthController(
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
-            IConfiguration configuration)
+            IConfiguration configuration,IEmailService emailService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _configuration = configuration;
+            _emailService = emailService;
         }
 
         // =========================
@@ -114,6 +117,69 @@ namespace HotelApi.Controllers
             });
         }
 
+        //==================
+        //forgot password
+        //==================
+        [AllowAnonymous]
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordDto dto)
+        {
+            var user = await _userManager.FindByEmailAsync(dto.Email);
+
+            // ما تقولش لليوزر إن الإيميل غلط (Security)
+            if (user == null)
+                return Ok("If your email exists, a reset link has been sent.");
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetLink =
+    $"{_configuration["Frontend:ResetPasswordUrl"]}" +
+    $"?email={Uri.EscapeDataString(dto.Email)}" +
+    $"&token={Uri.EscapeDataString(token)}";
+
+            await _emailService.SendAsync(
+                dto.Email,
+                "Reset your password",
+                $"Click here to reset your password: {resetLink}"
+            );
+
+            return Ok("If your email exists, a reset link has been sent.");
+        }
+
+        [AllowAnonymous]
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordDto dto)
+        {
+            var user = await _userManager.FindByEmailAsync(dto.Email);
+
+            if (user == null)
+                return BadRequest("Invalid request");
+
+            var result = await _userManager.ResetPasswordAsync(
+                user,
+                dto.Token,
+                dto.NewPassword
+            );
+
+            if (!result.Succeeded)
+            {
+                return BadRequest(result.Errors);
+            }
+
+            return Ok("Password reset successfully");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         // =========================
         //  JWT Token with Roles
         // =========================
@@ -167,4 +233,16 @@ namespace HotelApi.Controllers
         public string Email { get; set; }
         public string Password { get; set; }
     }
+    public class ForgotPasswordDto
+    {
+        public string Email { get; set; }
+    }
+
+    public class ResetPasswordDto
+    {
+        public string Email { get; set; }
+        public string Token { get; set; }
+        public string NewPassword { get; set; }
+    }
+
 }

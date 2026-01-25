@@ -152,3 +152,9 @@ D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\AutoMapper.dll
 D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Stripe.net.dll
 D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\HotelApi.staticwebassets.runtime.json
+D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\Hammad\App_VS\HotelApi\HotelApi\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll

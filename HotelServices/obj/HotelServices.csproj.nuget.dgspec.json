@@ -142,6 +142,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.2, )"
+            },
             "Stripe.net": {
               "target": "Package",
               "version": "[50.0.0, )"

@@ -24,23 +24,33 @@ namespace HotelServices.Implementation
 
         public async Task<BookingResponseDto> CreateBookingAsync(CreateBookingDTO dto, string userId)
         {
-            
-            if(dto.CheckInDate >= dto.CheckOutDate)
+            if (dto.CheckInDate >= dto.CheckOutDate)
                 throw new ArgumentException("Check-out date must be after check-in date.");
-            if(dto.CheckInDate < DateTime.Now.Date)
+
+            if (dto.CheckInDate < DateTime.Now.Date)
                 throw new ArgumentException("Check-in date cannot be in the past.");
+
             var existingBookings = await _unitOfWork.Bookings.GetBookingsByRoomIdAsyn(dto.RoomId);
+
             bool isConflict = existingBookings.Any(b =>
-               (dto.CheckInDate < b.CheckOutDate) && (dto.CheckOutDate > b.CheckInDate)
+                b.Status != BookingStatus.Cancelled && // مهم
+                (dto.CheckInDate < b.CheckOutDate) &&
+                (dto.CheckOutDate > b.CheckInDate)
             );
+
             if (isConflict)
                 throw new InvalidOperationException("The room is already booked for the selected dates.");
 
-            
             var booking = _mapper.Map<Booking>(dto);
             booking.UserId = userId;
+
+            booking.Status = BookingStatus.Pending;
+            booking.CreatedAt = DateTime.Now;
+            booking.ExpiresAt = DateTime.Now.AddMinutes(15); // ⭐ هنا بقى
+
             await _unitOfWork.Bookings.AddAsync(booking);
             await _unitOfWork.CompleteAsync();
+
             var room = await _unitOfWork.Rooms.GetByIdAsync(booking.RoomId);
             booking.Room = room;
 
@@ -200,6 +210,30 @@ namespace HotelServices.Implementation
         {
           var b= await _unitOfWork.Bookings.GetBookingsByRoomIdAsyn(id);
             return  _mapper.Map<IEnumerable<BookingResponseByRoomIDDto?>>(b);
+        }
+
+        public async Task ConfirmBookingAfterPaymentAsync(int bookingId)
+        {
+            var booking = await _unitOfWork.Bookings.GetByIdAsync(bookingId);
+
+            if (booking == null)
+                throw new Exception("Booking not found");
+
+            if (booking.Status == BookingStatus.Cancelled)
+                throw new Exception("Booking already cancelled");
+
+            booking.Status = BookingStatus.Confirmed;
+            booking.ExpiresAt = null;
+
+            await _unitOfWork.CompleteAsync();
+        }
+
+        public async Task<BookingResponseDto?> GetBookingByIdAsync(int id)
+        {
+            return await _dbcontext.Bookings.Include(b => b.Room).Include(b => b.User)
+                .Where(b => b.BookingId == id)
+                .Select(b => _mapper.Map<BookingResponseDto>(b))
+                .FirstOrDefaultAsync();
         }
     }
 }

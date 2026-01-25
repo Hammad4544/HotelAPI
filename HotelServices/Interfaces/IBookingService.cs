@@ -25,9 +25,11 @@ namespace HotelServices.Interfaces
         Task<DashboardStatsDto> GetStats();
         Task<IEnumerable<BookingDashboardDto>>GetAllBookingAsync();
 
+        Task<BookingResponseDto?> GetBookingByIdAsync(int id);
         Task<IEnumerable<BookingDashboardDto>> GetLatestBookings();
         Task<bool> UpdateStatusForAdmin(int id, BookingStatus status);
         Task<bool> UpdateBookingForAdminAsync(int id, UpdateBookingDto updatedBooking);
         Task<bool> DeleteBookingForAdminAsync(int id);
+        public  Task ConfirmBookingAfterPaymentAsync(int bookingId);
     }
 }

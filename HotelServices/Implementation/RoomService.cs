@@ -70,25 +70,43 @@ namespace HotelServices.Implementation
         public async Task<IEnumerable<RoomResponseDto>> GetAllRooms()
         {
             var rooms = await _roomRepository.GetAllWithImages();
-            var now = DateTime.Now.Date;
+            var today = DateTime.Now.Date;
+            var now = DateTime.Now;
+
             var result = rooms.Select(room =>
             {
+                var activeBooking = room.Bookings
+                    .Where(b =>
+                        b.Status != BookingStatus.Cancelled &&
 
-                var currentBooking = room.Bookings.Where(d => d.CheckOutDate.Date> DateTime.Now.Date && d.CheckInDate.Date<= DateTime.Now.Date).FirstOrDefault();
+                        // Confirmed دايمًا حاجز
+                        (
+                            b.Status == BookingStatus.Confirmed ||
+
+                            // Pending ولسه ما انتهيش
+                            (b.Status == BookingStatus.Pending &&
+                             b.ExpiresAt != null &&
+                             b.ExpiresAt > now)
+                        ) &&
+
+                        // التاريخ متداخل
+                        b.CheckOutDate.Date > today &&
+                        b.CheckInDate.Date <= today
+                    )
+                    .OrderBy(b => b.CheckOutDate)
+                    .FirstOrDefault();
+
                 return new RoomResponseDto
                 {
                     RoomId = room.RoomId,
                     Number = room.Number,
                     Type = room.Type,
                     PricePerNight = room.PricePerNight,
-                    IsAvailable = currentBooking == null,
-                    BookedUntil = currentBooking?.CheckOutDate,
+                    IsAvailable = activeBooking == null,
+                    BookedUntil = activeBooking?.CheckOutDate,
                     Description = room.Description,
                     Images = room.Images?.Select(img => img.ImageUrl).ToList() ?? new List<string>()
                 };
-
-
-
             });
 
             return result;

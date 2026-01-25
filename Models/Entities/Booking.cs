@@ -22,6 +22,10 @@ namespace Models.Entities
         public Room? Room { get; set; }
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? ExpiresAt { get; set; }
+
         public BookingStatus Status { get; set; } = BookingStatus.Pending;
 
     }

@@ -255,6 +255,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PaymentController",
+    "Method": "StripeWebhook",
+    "RelativePath": "api/Payment/webhook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "HotelApi.Controllers.ReviewController",
     "Method": "CreateOrUpdate",
     "RelativePath": "api/Review/CreateOrUpdate",

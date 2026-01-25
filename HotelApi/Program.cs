@@ -90,6 +90,8 @@ namespace HotelApi
             builder.Services.AddScoped<IReviewRepository,ReviewRepository>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddHostedService<BookingExpirationService>();
+            builder.Services.AddScoped<IEmailService, SmtpEmailService>();
 
 
 

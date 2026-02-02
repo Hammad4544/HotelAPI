@@ -20,3 +20,4 @@ namespace Models.DTOS.Booking
         public string Status { get; set; }
     }
 }
+
